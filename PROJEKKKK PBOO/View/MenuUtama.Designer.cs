@@ -33,9 +33,9 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             btnMonitoringAyam = new Button();
-            btnMonitoringTelur = new Button();
             btnPrediksiAyam = new Button();
             btnPrediksiTelur = new Button();
+            btnMonitoringTelur = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -86,18 +86,6 @@
             btnMonitoringAyam.UseVisualStyleBackColor = false;
             btnMonitoringAyam.Click += btnMonitoringAyam_Click;
             // 
-            // btnMonitoringTelur
-            // 
-            btnMonitoringTelur.BackColor = Color.White;
-            btnMonitoringTelur.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnMonitoringTelur.Location = new Point(477, 99);
-            btnMonitoringTelur.Name = "btnMonitoringTelur";
-            btnMonitoringTelur.Size = new Size(197, 147);
-            btnMonitoringTelur.TabIndex = 4;
-            btnMonitoringTelur.Text = "Monitoring\r\n Telur ";
-            btnMonitoringTelur.UseVisualStyleBackColor = false;
-            btnMonitoringTelur.Click += btnMonitoringTelur_Click;
-            // 
             // btnPrediksiAyam
             // 
             btnPrediksiAyam.BackColor = Color.White;
@@ -122,6 +110,18 @@
             btnPrediksiTelur.UseVisualStyleBackColor = false;
             btnPrediksiTelur.Click += btnPrediksiTelur_Click;
             // 
+            // btnMonitoringTelur
+            // 
+            btnMonitoringTelur.BackColor = Color.White;
+            btnMonitoringTelur.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMonitoringTelur.Location = new Point(477, 99);
+            btnMonitoringTelur.Name = "btnMonitoringTelur";
+            btnMonitoringTelur.Size = new Size(192, 147);
+            btnMonitoringTelur.TabIndex = 7;
+            btnMonitoringTelur.Text = "Monitoring\r\n Telur";
+            btnMonitoringTelur.UseVisualStyleBackColor = false;
+            btnMonitoringTelur.Click += btnMonitoringTelur_Click;
+            // 
             // MenuUtama
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -129,9 +129,9 @@
             BackColor = Color.Linen;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(951, 611);
+            Controls.Add(btnMonitoringTelur);
             Controls.Add(btnPrediksiTelur);
             Controls.Add(btnPrediksiAyam);
-            Controls.Add(btnMonitoringTelur);
             Controls.Add(btnMonitoringAyam);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -150,8 +150,9 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Button btnMonitoringAyam;
-        private Button btnMonitoringTelur;
         private Button btnPrediksiAyam;
         private Button btnPrediksiTelur;
+        private Button btnMonitoringTelur;
+        private Panel panelUtama;
     }
 }

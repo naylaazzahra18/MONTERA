@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROJEKKKK_PBOO.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,13 +23,14 @@ namespace PROJEKKKK_PBOO
 
         private void btnMonitoringAyam_Click(object sender, EventArgs e)
         {
-
             MessageBox.Show("Form Monitoring Ayam belum dibuat");
         }
 
         private void btnMonitoringTelur_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Form Monitoring Telur belum dibuat");
+            // Membuka form sebagai jendela baru
+            MonitoringPanen form = new MonitoringPanen();
+            form.ShowDialog();
         }
 
         private void btnPrediksiAyam_Click(object sender, EventArgs e)
@@ -41,5 +43,4 @@ namespace PROJEKKKK_PBOO
             new PROJEKKKK_PBOO.Prediksi_Telur.PrediksiTelur().Show();
         }
     }
-
 }

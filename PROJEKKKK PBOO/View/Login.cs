@@ -1,6 +1,7 @@
-﻿using System;
+﻿using PROJEKKKK_PBOO.Controller;
+using PROJEKKKK_PBOO.Models;
+using System;
 using System.Windows.Forms;
-using PROJEKKKK_PBOO.Controller;
 namespace PROJEKKKK_PBOO.View
 {
     public partial class Login : Form
@@ -25,38 +26,27 @@ namespace PROJEKKKK_PBOO.View
         // Tombol Login
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            bool berhasil = controller.ProsesLogin(
-                txtUsername.Text.Trim(),
-                txtPassword.Text
-            );
+            // 1. Ambil input dari TextBox (pastikan nama TextBox-nya benar)
+            string user = txtUsername.Text.Trim();
+            string pass = txtPassword.Text.Trim();
 
-            if (berhasil)
+            // 2. Panggil AkunModel
+            AkunModel akun = new AkunModel();
+            bool isValid = akun.ValidasiLogin(user, pass);
+
+            // 3. Cek hasilnya
+            if (isValid)
             {
-                MessageBox.Show(
-                    "Login berhasil. Selamat datang Owner!",
-                    "MONTERA",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                MessageBox.Show("Login Berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Buka Menu Utama
                 MenuUtama menu = new MenuUtama();
-
-                menu.FormClosed += (s, args) => this.Close();
-
-                this.Hide();
                 menu.Show();
+                this.Hide();
             }
             else
             {
-                MessageBox.Show(
-                    "Username atau password salah!",
-                    "Login Gagal",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                txtPassword.Clear();
-                txtPassword.Focus();
+                MessageBox.Show("Username atau Password Salah!", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

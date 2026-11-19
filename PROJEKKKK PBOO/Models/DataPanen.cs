@@ -2,20 +2,44 @@
 
 namespace PROJEKKKK_PBOO.Models
 {
-    // Data panen untuk satu hari
     public class DataPanen
     {
+        // Properti untuk form desain barumu
         public DateTime Tanggal { get; set; }
-        public int AyamProduktif { get; set; }
-        public int Telur { get; set; }
+        public int JumlahTotal { get; set; }
+        public int TelurBaik { get; set; }
+        public int TelurRusak { get; set; }
+        public string Keterangan { get; set; }
 
-        // telur per ayam, contoh 0,83
-        public double Produktivitas
+        // --- TAMBAHAN UNTUK LAPORAN: Perhitungan Persentase Otomatis ---
+        public double PersentaseBaik
         {
-            get { return (double)Telur / AyamProduktif; }
+            get
+            {
+                if (JumlahTotal == 0) return 0;
+                return ((double)TelurBaik / JumlahTotal) * 100;
+            }
+        }
+        // ---------------------------------------------------------------
+
+        // Properti lama (untuk kebutuhan prediksi)
+        public int AyamProduktif { get; set; }
+
+        public int Telur
+        {
+            get { return TelurBaik; }
+            set { TelurBaik = value; } // Supaya sinkron dengan TelurBaik
         }
 
-        // dalam persen, contoh 83
+        public double Produktivitas
+        {
+            get
+            {
+                if (AyamProduktif == 0) return 0;
+                return (double)Telur / AyamProduktif;
+            }
+        }
+
         public double Persentase
         {
             get { return Produktivitas * 100; }
