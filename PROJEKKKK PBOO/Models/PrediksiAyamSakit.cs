@@ -14,11 +14,10 @@ namespace PROJEKKKK_PBOO.Models
             return Math.Round(base.HitungPersentase(), 2);
         }
 
-        // OVERRIDE: istilah status khusus ayam
-        public  string TentukanStatus(double sebelumnya, double sekarang)
+        public override string TentukanStatus(double sebelumnya, double sekarang)
         {
-            if (sekarang > sebelumnya) return "Meningkat";
-            if (sekarang < sebelumnya) return "Menurun";
+            if (sekarang > sebelumnya) return "Meningkat (perlu perhatian)";
+            if (sekarang < sebelumnya) return "Menurun (membaik)";
             return "Stabil";
         }
     }

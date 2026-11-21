@@ -14,6 +14,15 @@ namespace PROJEKKKK_PBOO
         public MenuUtama()
         {
             InitializeComponent();
+            while (Controls.Count > 0)
+                Controls[0].Dispose();
+
+            Text = "MONTERA: Sistem Monitoring dan Prediksi Tren Panen serta Jumlah Ayam Sakit | Owner";
+            StartPosition = FormStartPosition.CenterScreen;
+            ClientSize = new Size(1440, 900);
+            MinimumSize = new Size(1120, 720);
+            BackColor = Color.FromArgb(245, 248, 252);
+            Controls.Add(new BerandaDashboard(isOwner: true));
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

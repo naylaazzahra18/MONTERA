@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using PROJEKKKK_PBOO.Models;
 using PROJEKKKK_PBOO.Services;
 
@@ -7,16 +8,21 @@ namespace PROJEKKKK_PBOO.Controller
 {
     public class PanenController
     {
-        private readonly PanenService _service;
+        private readonly IPanenRepository _service;
 
-        public PanenController()
+        public PanenController() : this(new PanenService())
         {
-            _service = new PanenService();
+        }
+
+        public PanenController(IPanenRepository service)
+        {
+            _service = service ?? throw new ArgumentNullException(nameof(service));
         }
 
         public List<DataPanen> AmbilSemuaData()
         {
-            return _service.DaftarPanen;
+            _service.MuatData();
+            return _service.AmbilSemua().ToList();
         }
 
         public string Simpan(DateTime tanggal, string totalStr, string baikStr, string rusakStr, string keterangan)
@@ -36,6 +42,10 @@ namespace PROJEKKKK_PBOO.Controller
             if (total != (baik + rusak))
                 return "Jumlah Total harus sama dengan (Telur Baik + Telur Rusak).";
 
+            _service.MuatData();
+            if (_service.AmbilSemua().Any(d => d.Tanggal.Date == tanggal.Date))
+                return "Data panen untuk tanggal tersebut sudah ada.";
+
             _service.Tambah(new DataPanen
             {
                 Tanggal = tanggal,
@@ -50,6 +60,7 @@ namespace PROJEKKKK_PBOO.Controller
 
         public void Hapus(DateTime tanggal)
         {
+            _service.MuatData();
             _service.Hapus(tanggal);
         }
     }

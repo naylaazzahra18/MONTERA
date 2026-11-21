@@ -40,6 +40,16 @@
             btnReset = new Button();
             btnHapus = new Button();
             pictureBox1 = new PictureBox();
+            panelInput = new Panel();
+            panelRiwayat = new Panel();
+            lblJudul = new Label();
+            lblPetunjuk = new Label();
+            lblJudulRiwayat = new Label();
+            Tanggal = new DataGridViewTextBoxColumn();
+            JumlahAyam = new DataGridViewTextBoxColumn();
+            AyamSakit = new DataGridViewTextBoxColumn();
+            Persentase = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvHasil).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -98,13 +108,47 @@
             // 
             // dgvHasil
             // 
-            dgvHasil.BackgroundColor = Color.Aquamarine;
+            dgvHasil.BackgroundColor = Color.White;
             dgvHasil.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHasil.Location = new Point(53, 319);
+            dgvHasil.AllowUserToAddRows = false;
+            dgvHasil.ReadOnly = true;
+            dgvHasil.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHasil.MultiSelect = true;
+            dgvHasil.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvHasil.Columns.AddRange(new DataGridViewColumn[] { Tanggal, JumlahAyam, AyamSakit, Persentase, Status });
+            dgvHasil.Location = new Point(16, 48);
             dgvHasil.Name = "dgvHasil";
+            dgvHasil.RowHeadersVisible = false;
             dgvHasil.RowHeadersWidth = 51;
-            dgvHasil.Size = new Size(929, 233);
+            dgvHasil.Size = new Size(1032, 320);
             dgvHasil.TabIndex = 6;
+            dgvHasil.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            // 
+            // Tanggal
+            // 
+            Tanggal.HeaderText = "Tanggal";
+            Tanggal.Name = "Tanggal";
+            // 
+            // JumlahAyam
+            // 
+            JumlahAyam.HeaderText = "Jumlah Ayam";
+            JumlahAyam.Name = "JumlahAyam";
+            // 
+            // AyamSakit
+            // 
+            AyamSakit.HeaderText = "Ayam Sakit";
+            AyamSakit.Name = "AyamSakit";
+            // 
+            // Persentase
+            // 
+            Persentase.HeaderText = "Ayam Sakit (%)";
+            Persentase.Name = "Persentase";
+            Persentase.DefaultCellStyle.Format = "F2";
+            // 
+            // Status
+            // 
+            Status.HeaderText = "Perubahan Dibanding Data Sebelumnya";
+            Status.Name = "Status";
             // 
             // btnSimpan
             // 
@@ -147,25 +191,100 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // panelInput
+            // 
+            panelInput.BackColor = Color.White;
+            panelInput.Controls.Add(label1);
+            panelInput.Controls.Add(txtTanggal);
+            panelInput.Controls.Add(label2);
+            panelInput.Controls.Add(txtJumlahAyam);
+            panelInput.Controls.Add(label3);
+            panelInput.Controls.Add(txtAyamSakit);
+            panelInput.Controls.Add(pictureBox1);
+            panelInput.Controls.Add(btnSimpan);
+            panelInput.Controls.Add(btnReset);
+            panelInput.Controls.Add(btnHapus);
+            panelInput.Location = new Point(28, 102);
+            panelInput.Name = "panelInput";
+            panelInput.Size = new Size(1064, 192);
+            panelInput.TabIndex = 11;
+            // 
+            // panelRiwayat
+            // 
+            panelRiwayat.BackColor = Color.White;
+            panelRiwayat.Location = new Point(28, 330);
+            panelRiwayat.Name = "panelRiwayat";
+            panelRiwayat.Size = new Size(1064, 385);
+            panelRiwayat.TabIndex = 12;
+            panelRiwayat.Controls.Add(lblJudulRiwayat);
+            panelRiwayat.Controls.Add(dgvHasil);
+            // 
+            // lblJudul
+            // 
+            lblJudul.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
+            lblJudul.Location = new Point(30, 20);
+            lblJudul.Name = "lblJudul";
+            lblJudul.Size = new Size(700, 40);
+            lblJudul.TabIndex = 13;
+            lblJudul.Text = "🐔 Prediksi Kesehatan Ayam";
+            // 
+            // lblPetunjuk
+            // 
+            lblPetunjuk.Font = new Font("Segoe UI", 9F);
+            lblPetunjuk.ForeColor = Color.FromArgb(105, 121, 139);
+            lblPetunjuk.Location = new Point(34, 62);
+            lblPetunjuk.Name = "lblPetunjuk";
+            lblPetunjuk.Size = new Size(950, 30);
+            lblPetunjuk.TabIndex = 14;
+            lblPetunjuk.Text = "Persentase ayam sakit = jumlah ayam sakit ÷ jumlah ayam × 100%. Status membandingkan persentase dengan catatan sebelumnya.";
+            // 
+            // lblJudulRiwayat
+            // 
+            lblJudulRiwayat.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblJudulRiwayat.Location = new Point(16, 14);
+            lblJudulRiwayat.Name = "lblJudulRiwayat";
+            lblJudulRiwayat.Size = new Size(700, 28);
+            lblJudulRiwayat.TabIndex = 15;
+            lblJudulRiwayat.Text = "Riwayat Prediksi Kesehatan Ayam";
+            // 
             // PrediksiAyamSakit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1033, 592);
-            Controls.Add(pictureBox1);
-            Controls.Add(btnHapus);
-            Controls.Add(btnReset);
-            Controls.Add(btnSimpan);
-            Controls.Add(dgvHasil);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(txtAyamSakit);
-            Controls.Add(txtJumlahAyam);
-            Controls.Add(txtTanggal);
+            BackColor = Color.FromArgb(245, 248, 252);
+            ClientSize = new Size(1120, 760);
+            MinimumSize = new Size(1000, 700);
+            Controls.Add(panelInput);
+            Controls.Add(panelRiwayat);
+            Controls.Add(lblJudul);
+            Controls.Add(lblPetunjuk);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.Location = new Point(27, 18);
+            label1.Text = "TANGGAL PENCATATAN";
+            txtTanggal.Location = new Point(27, 48);
+            txtTanggal.Size = new Size(210, 32);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label2.Location = new Point(272, 18);
+            label2.Text = "JUMLAH AYAM";
+            txtJumlahAyam.Location = new Point(272, 48);
+            txtJumlahAyam.Size = new Size(210, 32);
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label3.Location = new Point(517, 18);
+            label3.Text = "JUMLAH AYAM SAKIT";
+            txtAyamSakit.Location = new Point(517, 48);
+            txtAyamSakit.Size = new Size(210, 32);
+            pictureBox1.Location = new Point(777, 14);
+            pictureBox1.Size = new Size(235, 155);
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            btnSimpan.Text = "Simpan Catatan";
+            btnSimpan.Location = new Point(27, 116);
+            btnSimpan.Size = new Size(155, 38);
+            btnReset.Location = new Point(197, 116);
+            btnReset.Size = new Size(110, 38);
+            btnHapus.Location = new Point(322, 116);
+            btnHapus.Size = new Size(110, 38);
             Name = "PrediksiAyamSakit";
-            Text = "PrediksiAyamSakit";
+            Text = "MONTERA | Prediksi Kesehatan Ayam";
             ((System.ComponentModel.ISupportInitialize)dgvHasil).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -185,5 +304,15 @@
         private Button btnReset;
         private Button btnHapus;
         private PictureBox pictureBox1;
+        private Panel panelInput;
+        private Panel panelRiwayat;
+        private Label lblJudul;
+        private Label lblPetunjuk;
+        private Label lblJudulRiwayat;
+        private DataGridViewTextBoxColumn Tanggal;
+        private DataGridViewTextBoxColumn JumlahAyam;
+        private DataGridViewTextBoxColumn AyamSakit;
+        private DataGridViewTextBoxColumn Persentase;
+        private DataGridViewTextBoxColumn Status;
     }
 }

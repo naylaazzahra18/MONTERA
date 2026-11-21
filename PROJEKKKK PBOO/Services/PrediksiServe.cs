@@ -1,46 +1,43 @@
-﻿using PROJEKKKK_PBOO.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using PROJEKKKK_PBOO.Models;
 
 namespace PROJEKKKK_PBOO.Services
 {
-    // Prediksi sederhana:
-    // 1. Produktivitas harian = telur / ayam produktif.
-    // 2. Ambil rata-rata produktivitas maksimal 3 hari terakhir.
-    // 3. Prediksi telur besok = rata-rata produktivitas x ayam produktif hari ini.
-    // Jadi kalau ayam produktif berkurang, prediksi telur ikut turun.
     public class PrediksiService
     {
-        // prediksi telur untuk hari setelah data ke-i
-        public double PrediksiTelur(List<DataPanen> data, int i)
+        private const int MaksimumDataAcuan = 3;
+
+        public List<HasilPrediksi> BuatRiwayatPrediksi(IReadOnlyList<DataPanen> dataPanen)
         {
-            int awal = Math.Max(0, i - 2);
-            double total = 0;
-            for (int k = awal; k <= i; k++)
+            if (dataPanen == null)
+                throw new ArgumentNullException(nameof(dataPanen));
+
+            List<DataPanen> dataUrut = dataPanen
+                .OrderBy(data => data.Tanggal)
+                .ToList();
+            List<HasilPrediksi> hasil = new List<HasilPrediksi>();
+
+            for (int i = 0; i < dataUrut.Count; i++)
             {
-                total += data[k].Produktivitas;
+                int awal = Math.Max(0, i - MaksimumDataAcuan + 1);
+                int jumlahDataAcuan = i - awal + 1;
+                double rataRataTelurBaik = dataUrut
+                    .Skip(awal)
+                    .Take(jumlahDataAcuan)
+                    .Average(data => data.TelurBaik);
+
+                hasil.Add(new HasilPrediksi(
+                    dataUrut[i].Tanggal,
+                    dataUrut[i].Tanggal.AddDays(1),
+                    dataUrut[i].TelurBaik,
+                    (int)Math.Round(rataRataTelurBaik, MidpointRounding.AwayFromZero),
+                    dataUrut[i].PersentaseBaik,
+                    jumlahDataAcuan));
             }
 
-            double rata = total / (i - awal + 1);
-            return rata * data[i].AyamProduktif;
-        }
-
-        public string Status(List<DataPanen> data, int i, double prediksi)
-        {
-            double persen = data[i].Persentase;
-            string status = "Rendah";
-            if (persen >= 80) status = "Baik";
-            else if (persen >= 60) status = "Cukup";
-
-            // ayam produktif turun lebih dari 5% dari hari sebelumnya
-            if (i > 0 && data[i].AyamProduktif < data[i - 1].AyamProduktif * 0.95)
-                status += " (ayam produktif turun)";
-
-            // prediksi besok turun lebih dari 5% dari telur hari ini
-            if (prediksi < data[i].Telur * 0.95)
-                status += " (diprediksi turun)";
-
-            return status;
+            return hasil;
         }
     }
 }

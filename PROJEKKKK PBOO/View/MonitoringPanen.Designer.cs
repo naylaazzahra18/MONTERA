@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panelInput = new Panel();
+            panelFilter = new Panel();
+            lblSubjudul = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -39,6 +42,7 @@
             Telurbaik = new DataGridViewTextBoxColumn();
             Telurrusak = new DataGridViewTextBoxColumn();
             Keterangan = new DataGridViewTextBoxColumn();
+            PersentaseBaik = new DataGridViewTextBoxColumn();
             dtpTanggal = new DateTimePicker();
             txtTotal = new TextBox();
             txtBaik = new TextBox();
@@ -109,9 +113,16 @@
             // 
             // dgvPanen
             // 
-            dgvPanen.BackgroundColor = SystemColors.GradientInactiveCaption;
+            dgvPanen.BackgroundColor = Color.White;
+            dgvPanen.BorderStyle = BorderStyle.None;
+            dgvPanen.GridColor = Color.FromArgb(225, 231, 222);
+            dgvPanen.EnableHeadersVisualStyles = false;
+            dgvPanen.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(231, 240, 250);
+            dgvPanen.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(34, 49, 69);
+            dgvPanen.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dgvPanen.DefaultCellStyle.BackColor = Color.White;
             dgvPanen.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPanen.Columns.AddRange(new DataGridViewColumn[] { Tanggal, JumlahTotal, Telurbaik, Telurrusak, Keterangan });
+            dgvPanen.Columns.AddRange(new DataGridViewColumn[] { Tanggal, JumlahTotal, Telurbaik, Telurrusak, PersentaseBaik, Keterangan });
             dgvPanen.Location = new Point(43, 395);
             dgvPanen.Name = "dgvPanen";
             dgvPanen.RowHeadersWidth = 51;
@@ -145,6 +156,13 @@
             Telurrusak.MinimumWidth = 6;
             Telurrusak.Name = "Telurrusak";
             Telurrusak.Width = 125;
+            // 
+            // Keterangan
+            // 
+            PersentaseBaik.HeaderText = "Persentase Baik (%)";
+            PersentaseBaik.MinimumWidth = 6;
+            PersentaseBaik.Name = "Persen";
+            PersentaseBaik.Width = 125;
             // 
             // Keterangan
             // 
@@ -297,12 +315,117 @@
             lblTotal.TabIndex = 29;
             lblTotal.Text = "Total";
             // 
+            // Layout dashboard MONTERA
+            // 
+            panelInput.BackColor = Color.White;
+            panelInput.Location = new Point(24, 100);
+            panelInput.Name = "panelInput";
+            panelInput.Size = new Size(1176, 155);
+            panelInput.TabIndex = 30;
+            panelFilter.BackColor = Color.White;
+            panelFilter.Location = new Point(24, 270);
+            panelFilter.Name = "panelFilter";
+            panelFilter.Size = new Size(1176, 78);
+            panelFilter.TabIndex = 31;
+            lblSubjudul.Font = new Font("Segoe UI", 9.5F);
+            lblSubjudul.ForeColor = Color.FromArgb(105, 121, 139);
+            lblSubjudul.Location = new Point(31, 60);
+            lblSubjudul.Name = "lblSubjudul";
+            lblSubjudul.Size = new Size(800, 28);
+            lblSubjudul.TabIndex = 32;
+            lblSubjudul.Text = "Catat hasil harian, pantau kualitas telur, dan lihat rekap panen kandang.";
+            label2.Text = "🥚 Monitoring & Rekap Panen Telur";
+            label2.Location = new Point(28, 20);
+            label2.Size = new Size(820, 38);
+            label2.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
+            label1.Location = new Point(42, 116);
+            label1.Text = "TANGGAL PANEN";
+            dtpTanggal.Location = new Point(42, 146);
+            dtpTanggal.Size = new Size(205, 30);
+            label3.Location = new Point(272, 116);
+            label3.Text = "TOTAL TELUR";
+            txtTotal.Location = new Point(272, 146);
+            txtTotal.Size = new Size(130, 30);
+            label4.Location = new Point(430, 116);
+            label4.Text = "TELUR BAIK";
+            txtBaik.Location = new Point(430, 146);
+            txtBaik.Size = new Size(130, 30);
+            label5.Location = new Point(588, 116);
+            label5.Text = "TELUR RUSAK";
+            txtRusak.Location = new Point(588, 146);
+            txtRusak.Size = new Size(130, 30);
+            label6.Location = new Point(746, 116);
+            label6.Text = "KETERANGAN / KONDISI KANDANG";
+            txtKeterangan.Location = new Point(746, 146);
+            txtKeterangan.Size = new Size(420, 30);
+            btnSimpan.Location = new Point(746, 195);
+            btnSimpan.Size = new Size(160, 38);
+            btnSimpan.Text = "Simpan Data";
+            btnSimpan.BackColor = Color.FromArgb(0, 111, 77);
+            btnSimpan.ForeColor = Color.White;
+            btnSimpan.FlatStyle = FlatStyle.Flat;
+            btnSimpan.FlatAppearance.BorderSize = 0;
+            btnSimpan.UseVisualStyleBackColor = false;
+            btnSimpan.Cursor = Cursors.Hand;
+            btnHapus.Location = new Point(920, 195);
+            btnHapus.Size = new Size(120, 38);
+            btnHapus.BackColor = Color.FromArgb(179, 73, 65);
+            btnHapus.ForeColor = Color.White;
+            btnHapus.FlatStyle = FlatStyle.Flat;
+            btnHapus.FlatAppearance.BorderSize = 0;
+            btnHapus.UseVisualStyleBackColor = false;
+            btnHapus.Cursor = Cursors.Hand;
+            label8.Location = new Point(42, 292);
+            label8.Text = "Cari tanggal / catatan";
+            txtCari.Location = new Point(205, 290);
+            txtCari.Size = new Size(260, 32);
+            btnCari.Location = new Point(478, 289);
+            btnCari.Size = new Size(95, 34);
+            btnCari.BackColor = Color.FromArgb(76, 128, 91);
+            btnCari.ForeColor = Color.White;
+            btnCari.FlatStyle = FlatStyle.Flat;
+            btnCari.FlatAppearance.BorderSize = 0;
+            btnCari.UseVisualStyleBackColor = false;
+            btnCari.Cursor = Cursors.Hand;
+            btnReset.Location = new Point(582, 289);
+            btnReset.Size = new Size(100, 34);
+            btnReset.BackColor = Color.FromArgb(185, 132, 47);
+            btnReset.ForeColor = Color.White;
+            btnReset.FlatStyle = FlatStyle.Flat;
+            btnReset.FlatAppearance.BorderSize = 0;
+            btnReset.UseVisualStyleBackColor = false;
+            btnReset.Cursor = Cursors.Hand;
+            label9.Location = new Point(744, 292);
+            label9.Text = "Filter bulan";
+            cmbFilterBulan.Location = new Point(855, 288);
+            cmbFilterBulan.Size = new Size(250, 34);
+            label7.Location = new Point(28, 364);
+            label7.Size = new Size(1080, 30);
+            label7.Text = "📋 Riwayat Panen  |  Persentase telur baik = telur baik ÷ total panen × 100%";
+            label7.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            dgvPanen.Location = new Point(28, 402);
+            dgvPanen.Size = new Size(1172, 330);
+            dgvPanen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvPanen.RowHeadersVisible = false;
+            dgvPanen.ReadOnly = true;
+            dgvPanen.AllowUserToAddRows = false;
+            dgvPanen.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            lblTotal.Location = new Point(32, 744);
+            lblTotal.Size = new Size(1150, 30);
+            lblTotal.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            // 
             // MonitoringPanen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1172, 594);
+            BackColor = Color.FromArgb(245, 248, 252);
+            ClientSize = new Size(1240, 820);
+            MinimumSize = new Size(1080, 760);
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "MONTERA | Monitoring Panen";
+            Controls.Add(panelInput);
+            Controls.Add(panelFilter);
+            Controls.Add(lblSubjudul);
             Controls.Add(lblTotal);
             Controls.Add(btnReset);
             Controls.Add(btnCari);
@@ -326,7 +449,7 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Name = "MonitoringPanen";
-            Text = "MonitoringPanen";
+            Text = "MONTERA | Monitoring Panen";
             Load += MonitoringPanen_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPanen).EndInit();
             ResumeLayout(false);
@@ -344,6 +467,7 @@
         private DataGridViewTextBoxColumn JumlahTotal;
         private DataGridViewTextBoxColumn Telurbaik;
         private DataGridViewTextBoxColumn Telurrusak;
+        private DataGridViewTextBoxColumn PersentaseBaik;
         private DataGridViewTextBoxColumn Keterangan;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dtpTanggal;
@@ -362,5 +486,8 @@
         private Button btnCari;
         private Button btnReset;
         private Label lblTotal;
+        private Panel panelInput;
+        private Panel panelFilter;
+        private Label lblSubjudul;
     }
 }

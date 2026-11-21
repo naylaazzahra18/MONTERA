@@ -1,20 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PROJEKKKK_PBOO.Models
 {
     public class HasilPrediksi
     {
-        public int Hari { get; private set; }
-        public double Persentase { get; private set; }
-        public string Status { get; private set; }
+        public DateTime TanggalPanen { get; }
+        public DateTime TanggalPrediksi { get; }
+        public int TelurBaikAktual { get; }
+        public int PerkiraanTelurBaik { get; }
+        public double PersentaseTelurBaik { get; }
+        public int JumlahDataAcuan { get; }
 
-        public HasilPrediksi(int hari, double persentase, string status)
+        public HasilPrediksi(
+            DateTime tanggalPanen,
+            DateTime tanggalPrediksi,
+            int telurBaikAktual,
+            int perkiraanTelurBaik,
+            double persentaseTelurBaik,
+            int jumlahDataAcuan)
         {
-            Hari = hari;
-            Persentase = persentase;
-            Status = status;
+            TanggalPanen = tanggalPanen;
+            TanggalPrediksi = tanggalPrediksi;
+            TelurBaikAktual = telurBaikAktual;
+            PerkiraanTelurBaik = perkiraanTelurBaik;
+            PersentaseTelurBaik = persentaseTelurBaik;
+            JumlahDataAcuan = jumlahDataAcuan;
         }
     }
 }

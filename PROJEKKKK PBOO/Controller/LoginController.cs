@@ -1,15 +1,19 @@
-﻿
+﻿using PROJEKKKK_PBOO.Models;
+
 namespace PROJEKKKK_PBOO.Controller
 {
     public class LoginController
     {
-        private string usernameOwner = "owner";
-        private string passwordOwner = "montera123";
+        private readonly AkunModel _akunModel = new AkunModel();
+
+        public PeranAkun? Autentikasi(string username, string password)
+        {
+            return _akunModel.Autentikasi(username, password);
+        }
 
         public bool ProsesLogin(string username, string password)
         {
-            return username == usernameOwner &&
-                   password == passwordOwner;
+            return Autentikasi(username, password).HasValue;
         }
     }
 }

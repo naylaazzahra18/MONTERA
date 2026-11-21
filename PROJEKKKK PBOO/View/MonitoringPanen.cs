@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using PROJEKKKK_PBOO.Controller;
 using PROJEKKKK_PBOO.Models;
@@ -52,15 +53,6 @@ namespace PROJEKKKK_PBOO.View
         private void TampilkanKeTabel(List<DataPanen> data)
         {
             dgvPanen.Rows.Clear();
-            dgvPanen.Columns.Clear();
-
-            // Membuat kolom tabel
-            dgvPanen.Columns.Add("Tanggal", "Tanggal");
-            dgvPanen.Columns.Add("Total", "Jumlah Total");
-            dgvPanen.Columns.Add("Baik", "Telur Baik");
-            dgvPanen.Columns.Add("Rusak", "Telur Rusak");
-            dgvPanen.Columns.Add("Persen", "Persentase Baik (%)");
-            dgvPanen.Columns.Add("Ket", "Keterangan");
 
             // Mengisi data ke tabel
             foreach (DataPanen d in data)
@@ -86,9 +78,9 @@ namespace PROJEKKKK_PBOO.View
 
             int totalTelur = data.Sum(d => d.JumlahTotal);
             int totalBaik = data.Sum(d => d.TelurBaik);
-            double rataRataPersen = ((double)totalBaik / totalTelur) * 100;
+            double rataRataPersen = totalTelur == 0 ? 0 : (double)totalBaik / totalTelur * 100;
 
-            lblTotal.Text = $"Total Data: {data.Count} Hari  |  Total Telur: {totalTelur:N0} Butir  |  Rata-rata Baik: {rataRataPersen:F2}%";
+            lblTotal.Text = $"Total Data: {data.Count} Hari  |  Total Telur: {totalTelur:N0} Butir  |  Telur Baik: {totalBaik:N0} Butir ({rataRataPersen:F2}%)";
         }
 
         // 3. Event tombol Simpan Data

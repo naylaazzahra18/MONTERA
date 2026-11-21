@@ -39,5 +39,12 @@ namespace PROJEKKKK_PBOO.Models
         {
             return (double)AyamSakit / JumlahAyam * 100;
         }
+
+        public virtual string TentukanStatus(double sebelumnya, double sekarang)
+        {
+            if (sekarang > sebelumnya) return "Meningkat";
+            if (sekarang < sebelumnya) return "Menurun";
+            return "Stabil";
+        }
     }
 }

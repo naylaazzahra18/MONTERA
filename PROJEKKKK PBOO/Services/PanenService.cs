@@ -6,11 +6,11 @@ using PROJEKKKK_PBOO.Models;
 
 namespace PROJEKKKK_PBOO.Services
 {
-    public class PanenService
+    public class PanenService : IPanenRepository
     {
         private readonly string _folderData;
         private readonly string _filePanen;
-        public List<DataPanen> DaftarPanen { get; private set; }
+        private readonly List<DataPanen> _daftarPanen = new List<DataPanen>();
 
         public PanenService()
         {
@@ -20,13 +20,12 @@ namespace PROJEKKKK_PBOO.Services
             if (!Directory.Exists(_folderData))
                 Directory.CreateDirectory(_folderData);
 
-            DaftarPanen = new List<DataPanen>();
             MuatData();
         }
 
         public void MuatData()
         {
-            DaftarPanen.Clear();
+            _daftarPanen.Clear();
             if (!File.Exists(_filePanen)) return;
 
             foreach (string baris in File.ReadAllLines(_filePanen))
@@ -35,7 +34,7 @@ namespace PROJEKKKK_PBOO.Services
                 string[] kolom = baris.Split(';');
                 if (kolom.Length < 5) continue;
 
-                DaftarPanen.Add(new DataPanen
+                _daftarPanen.Add(new DataPanen
                 {
                     Tanggal = DateTime.Parse(kolom[0]),
                     JumlahTotal = int.Parse(kolom[1]),
@@ -46,23 +45,28 @@ namespace PROJEKKKK_PBOO.Services
             }
         }
 
+        public IReadOnlyList<DataPanen> AmbilSemua()
+        {
+            return _daftarPanen.ToList().AsReadOnly();
+        }
+
         public void Tambah(DataPanen data)
         {
-            DaftarPanen.Add(data);
-            DaftarPanen = DaftarPanen.OrderBy(d => d.Tanggal).ToList();
+            _daftarPanen.Add(data);
+            _daftarPanen.Sort((a, b) => a.Tanggal.CompareTo(b.Tanggal));
             SimpanKeFile();
         }
 
         public void Hapus(DateTime tanggal)
         {
-            DaftarPanen.RemoveAll(d => d.Tanggal.Date == tanggal.Date);
+            _daftarPanen.RemoveAll(d => d.Tanggal.Date == tanggal.Date);
             SimpanKeFile();
         }
 
         private void SimpanKeFile()
         {
             List<string> baris = new List<string>();
-            foreach (DataPanen d in DaftarPanen)
+            foreach (DataPanen d in _daftarPanen)
             {
                 baris.Add($"{d.Tanggal:yyyy-MM-dd};{d.JumlahTotal};{d.TelurBaik};{d.TelurRusak};{d.Keterangan}");
             }

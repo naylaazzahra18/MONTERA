@@ -1,6 +1,7 @@
 ﻿using PROJEKKKK_PBOO.Controller;
 using PROJEKKKK_PBOO.Models;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 namespace PROJEKKKK_PBOO.View
 {
@@ -11,9 +12,6 @@ namespace PROJEKKKK_PBOO.View
         public Login()
         {
             InitializeComponent();
-
-            // Mengatur tampilan
-            panelLogin.SendToBack();
             txtPassword.UseSystemPasswordChar = true;
 
             // Menghubungkan tombol
@@ -26,23 +24,24 @@ namespace PROJEKKKK_PBOO.View
         // Tombol Login
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // 1. Ambil input dari TextBox (pastikan nama TextBox-nya benar)
             string user = txtUsername.Text.Trim();
             string pass = txtPassword.Text.Trim();
+            PeranAkun? peran = controller.Autentikasi(user, pass);
 
-            // 2. Panggil AkunModel
-            AkunModel akun = new AkunModel();
-            bool isValid = akun.ValidasiLogin(user, pass);
-
-            // 3. Cek hasilnya
-            if (isValid)
+            if (peran.HasValue)
             {
                 MessageBox.Show("Login Berhasil!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Buka Menu Utama
-                MenuUtama menu = new MenuUtama();
-                menu.Show();
-                this.Hide();
+                Form beranda = new Beranda(peran.Value == PeranAkun.Owner);
+
+                beranda.FormClosed += (_, _) =>
+                {
+                    Show();
+                    txtPassword.Clear();
+                    txtUsername.Focus();
+                };
+                beranda.Show();
+                Hide();
             }
             else
             {

@@ -13,11 +13,7 @@ namespace PROJEKKKK_PBOO.Controller
             bool dataAwal,
             out double persentase)
         {
-            // Memanggil Model
-            PrediksiAyamModel prediksi =
-                new PrediksiAyamModel(jumlahAyam, ayamSakit);
-
-            // Menghitung persentase
+            Prediksi prediksi = new PrediksiAyamModel(jumlahAyam, ayamSakit);
             persentase = prediksi.HitungPersentase();
 
             // Menentukan status
