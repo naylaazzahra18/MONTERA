@@ -141,8 +141,17 @@
             // dgvPanen
             // 
             dgvPanen.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPanen.BackgroundColor = Color.DarkOrange;
-            dgvPanen.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPanen.BackgroundColor = Color.White;
+            dgvPanen.BorderStyle = BorderStyle.None;
+            dgvPanen.GridColor = Color.FromArgb(225, 232, 240);
+            dgvPanen.EnableHeadersVisualStyles = false;
+            dgvPanen.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(231, 240, 250);
+            dgvPanen.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(34, 49, 69);
+            dgvPanen.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dgvPanen.ColumnHeadersHeight = 38;
+            dgvPanen.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(246, 249, 244);
+            dgvPanen.RowTemplate.Height = 34;
+            dgvPanen.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPanen.Columns.AddRange(new DataGridViewColumn[] { Tanggal, Ayam, Telur, Prediksi, Status });
             dgvPanen.Location = new Point(32, 260);
             dgvPanen.Name = "dgvPanen";
@@ -208,6 +217,7 @@
             panelRingkasan.Location = new Point(32, 145);
             panelRingkasan.Name = "panelRingkasan";
             panelRingkasan.Size = new Size(936, 66);
+            panelRingkasan.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelRingkasan.TabIndex = 11;
             // 
             // lblJudul
@@ -225,6 +235,7 @@
             lblPetunjuk.Location = new Point(36, 74);
             lblPetunjuk.Name = "lblPetunjuk";
             lblPetunjuk.Size = new Size(925, 62);
+            lblPetunjuk.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblPetunjuk.TabIndex = 13;
             lblPetunjuk.Text = "Sumber data: Monitoring Panen. Setiap baris memperkirakan jumlah telur baik untuk sehari setelah tanggal panen. Perkiraan memakai rata-rata hingga 3 catatan panen terbaru. Persentase telur baik = telur baik ÷ total telur × 100%.";
             // 
@@ -242,20 +253,23 @@
             lblRingkasan.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblRingkasan.Location = new Point(14, 8);
             lblRingkasan.Name = "lblRingkasan";
-            lblRingkasan.Size = new Size(908, 50);
+            lblRingkasan.Size = new Size(700, 50);
+            lblRingkasan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblRingkasan.TabIndex = 15;
             lblRingkasan.Text = "Memuat riwayat panen...";
             panelRingkasan.Controls.Add(lblRingkasan);
             // 
             // btnMuatUlang
             // 
-            btnMuatUlang.Location = new Point(785, 27);
+            btnMuatUlang.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMuatUlang.Location = new Point(735, 14);
             btnMuatUlang.Name = "btnMuatUlang";
             btnMuatUlang.Size = new Size(183, 38);
             btnMuatUlang.TabIndex = 15;
             btnMuatUlang.Text = "↻ Muat Ulang Data";
             btnMuatUlang.UseVisualStyleBackColor = true;
             btnMuatUlang.Click += btnMuatUlang_Click;
+            panelRingkasan.Controls.Add(btnMuatUlang);
             // 
             // PrediksiTelur
             // 
@@ -268,7 +282,6 @@
             Controls.Add(lblJudul);
             Controls.Add(lblPetunjuk);
             Controls.Add(panelRingkasan);
-            Controls.Add(btnMuatUlang);
             Controls.Add(lblJudulRiwayat);
             Controls.Add(dgvPanen);
             Name = "PrediksiTelur";

@@ -15,10 +15,34 @@ namespace PROJEKKKK_PBOO.View
         public MonitoringAyam()
         {
             InitializeComponent();
+            panelInput.Resize += (_, _) => AturLayoutInput();
+            panelFilter.Resize += (_, _) => AturLayoutFilter();
             chkBaik.Checked = true;
             AturInputJumlah();
+            AturLayoutInput();
+            AturLayoutFilter();
             MuatPilihanBulan();
             MuatTabel();
+        }
+
+        private void AturLayoutInput()
+        {
+            int lebar = panelInput.ClientSize.Width;
+            txtKeterangan.Width = Math.Max(180, lebar - 590);
+            btnSimpan.Left = lebar - 440;
+            btnReset.Left = lebar - 270;
+            btnHapus.Left = lebar - 130;
+        }
+
+        private void AturLayoutFilter()
+        {
+            int lebar = panelFilter.ClientSize.Width;
+            txtCari.Width = Math.Max(180, Math.Min(420, lebar - 652));
+            btnCari.Left = txtCari.Right + 15;
+            btnResetFilter.Left = btnCari.Right + 15;
+            lblFilterBulan.Left = btnResetFilter.Right + 20;
+            cmbFilterBulan.Left = lblFilterBulan.Right + 10;
+            cmbFilterBulan.Width = Math.Max(120, lebar - cmbFilterBulan.Left - 20);
         }
 
         private void MuatPilihanBulan()

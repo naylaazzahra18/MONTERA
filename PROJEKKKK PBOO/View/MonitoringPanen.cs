@@ -16,6 +16,29 @@ namespace PROJEKKKK_PBOO.View
         {
             InitializeComponent();
             _controller = new PanenController();
+            panelInput.Resize += (_, _) => AturLayoutInput();
+            panelFilter.Resize += (_, _) => AturLayoutFilter();
+            AturLayoutInput();
+            AturLayoutFilter();
+        }
+
+        private void AturLayoutInput()
+        {
+            int lebar = panelInput.ClientSize.Width;
+            txtKeterangan.Width = Math.Max(180, lebar - txtKeterangan.Left - 20);
+            btnSimpan.Left = lebar - 454;
+            btnHapus.Left = lebar - 280;
+        }
+
+        private void AturLayoutFilter()
+        {
+            int lebar = panelFilter.ClientSize.Width;
+            txtCari.Width = Math.Min(260, Math.Max(120, lebar - 680));
+            btnCari.Left = txtCari.Right + 10;
+            btnReset.Left = btnCari.Right + 10;
+            label9.Left = btnReset.Right + 12;
+            cmbFilterBulan.Left = label9.Right + 10;
+            cmbFilterBulan.Width = Math.Max(120, lebar - cmbFilterBulan.Left - 20);
         }
 
         // 1. Berjalan otomatis saat form pertama kali dibuka

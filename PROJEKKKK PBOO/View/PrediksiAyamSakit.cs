@@ -12,7 +12,17 @@ namespace PROJEKKKK_PBOO.PrediksiAyam
         public PrediksiAyamSakit()
         {
             InitializeComponent();
+            panelInput.Resize += (_, _) => AturLayoutPanelInput();
+            AturLayoutPanelInput();
             MuatRiwayatMonitoring();
+        }
+
+        private void AturLayoutPanelInput()
+        {
+            int lebarTeks = Math.Max(100, panelInput.ClientSize.Width - btnMuatUlang.Width - 60);
+            lblSumberData.Width = lebarTeks;
+            lblRingkasan.Width = lebarTeks;
+            btnMuatUlang.Left = panelInput.ClientSize.Width - btnMuatUlang.Width - 20;
         }
 
         private void btnMuatUlang_Click(object? sender, System.EventArgs e)

@@ -112,11 +112,22 @@
             // dgvHasil
             // 
             dgvHasil.BackgroundColor = Color.White;
-            dgvHasil.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHasil.BorderStyle = BorderStyle.None;
+            dgvHasil.GridColor = Color.FromArgb(225, 232, 240);
+            dgvHasil.EnableHeadersVisualStyles = false;
+            dgvHasil.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(231, 240, 250);
+            dgvHasil.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(34, 49, 69);
+            dgvHasil.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dgvHasil.ColumnHeadersHeight = 38;
+            dgvHasil.DefaultCellStyle.SelectionBackColor = Color.FromArgb(213, 232, 214);
+            dgvHasil.DefaultCellStyle.SelectionForeColor = Color.FromArgb(34, 49, 69);
+            dgvHasil.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(246, 249, 244);
+            dgvHasil.RowTemplate.Height = 34;
             dgvHasil.AllowUserToAddRows = false;
+            dgvHasil.AllowUserToDeleteRows = false;
             dgvHasil.ReadOnly = true;
             dgvHasil.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvHasil.MultiSelect = true;
+            dgvHasil.MultiSelect = false;
             dgvHasil.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHasil.Columns.AddRange(new DataGridViewColumn[] { Tanggal, JumlahAyam, AyamSakit, AyamMati, Persentase, Status });
             dgvHasil.Location = new Point(16, 48);
@@ -207,6 +218,7 @@
             panelInput.Location = new Point(28, 102);
             panelInput.Name = "panelInput";
             panelInput.Size = new Size(1064, 100);
+            panelInput.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelInput.TabIndex = 11;
             // 
             // panelRiwayat
@@ -244,6 +256,7 @@
             btnMuatUlang.FlatAppearance.BorderSize = 0;
             btnMuatUlang.FlatStyle = FlatStyle.Flat;
             btnMuatUlang.ForeColor = Color.White;
+            btnMuatUlang.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMuatUlang.Location = new Point(850, 30);
             btnMuatUlang.Name = "btnMuatUlang";
             btnMuatUlang.Size = new Size(190, 40);

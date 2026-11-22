@@ -360,7 +360,7 @@ namespace PROJEKKKK_PBOO.View
             lblStatusData.ForeColor = System.Drawing.Color.FromArgb(0, 111, 77);
             lblStatusData.Location = new System.Drawing.Point(28, 98);
             lblStatusData.Name = "lblStatusData";
-            lblStatusData.Size = new System.Drawing.Size(630, 28);
+            lblStatusData.Size = new System.Drawing.Size(580, 28);
             lblStatusData.TabIndex = 2;
             lblStatusData.Text = "Data panen";
             // 
@@ -372,7 +372,7 @@ namespace PROJEKKKK_PBOO.View
             btnInputPanen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnInputPanen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             btnInputPanen.ForeColor = System.Drawing.Color.White;
-            btnInputPanen.Location = new System.Drawing.Point(951, 24);
+            btnInputPanen.Location = new System.Drawing.Point(951, 98);
             btnInputPanen.Name = "btnInputPanen";
             btnInputPanen.Size = new System.Drawing.Size(205, 40);
             btnInputPanen.TabIndex = 3;
@@ -583,7 +583,7 @@ namespace PROJEKKKK_PBOO.View
             // 
             dgvPanenTerbaru.AllowUserToAddRows = false;
             dgvPanenTerbaru.AllowUserToDeleteRows = false;
-            dgvPanenTerbaru.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            dgvPanenTerbaru.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             dgvPanenTerbaru.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvPanenTerbaru.BackgroundColor = System.Drawing.Color.White;
             dgvPanenTerbaru.BorderStyle = System.Windows.Forms.BorderStyle.None;
