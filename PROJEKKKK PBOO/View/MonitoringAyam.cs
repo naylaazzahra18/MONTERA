@@ -37,12 +37,25 @@ namespace PROJEKKKK_PBOO.View
         private void AturLayoutFilter()
         {
             int lebar = panelFilter.ClientSize.Width;
-            txtCari.Width = Math.Max(180, Math.Min(420, lebar - 652));
-            btnCari.Left = txtCari.Right + 15;
-            btnResetFilter.Left = btnCari.Right + 15;
-            lblFilterBulan.Left = btnResetFilter.Right + 20;
-            cmbFilterBulan.Left = lblFilterBulan.Right + 10;
-            cmbFilterBulan.Width = Math.Max(120, lebar - cmbFilterBulan.Left - 20);
+            const int margin = 20;
+            const int jarak = 12;
+            const int lebarLabelBulan = 100;
+            const int lebarComboMinimum = 170;
+            const int lebarComboMaksimum = 250;
+
+            cmbFilterBulan.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            int lebarCombo = Math.Min(lebarComboMaksimum, Math.Max(lebarComboMinimum, lebar / 4));
+            cmbFilterBulan.Width = lebarCombo;
+            cmbFilterBulan.Left = lebar - margin - cmbFilterBulan.Width;
+
+            lblFilterBulan.Width = lebarLabelBulan;
+            lblFilterBulan.Left = cmbFilterBulan.Left - jarak - lblFilterBulan.Width;
+
+            btnResetFilter.Left = lblFilterBulan.Left - 20 - btnResetFilter.Width;
+            btnCari.Left = btnResetFilter.Left - jarak - btnCari.Width;
+
+            txtCari.Left = margin;
+            txtCari.Width = Math.Max(180, btnCari.Left - jarak - txtCari.Left);
         }
 
         private void MuatPilihanBulan()

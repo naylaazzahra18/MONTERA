@@ -39,8 +39,9 @@ namespace PROJEKKKK_PBOO.View
             lblJudul.Text = _isOwner
                 ? "Dashboard Owner MONTERA"
                 : "Dashboard Karyawan MONTERA";
-            btnMonitoringAyam.Visible = _isOwner;
+            btnMonitoringAyam.Visible = true;
             btnPrediksiAyam.Visible = _isOwner;
+            btnPrediksiTelur.Visible = _isOwner;
             Text = _isOwner
                 ? "MONTERA | Dashboard Owner"
                 : "MONTERA | Dashboard Karyawan";

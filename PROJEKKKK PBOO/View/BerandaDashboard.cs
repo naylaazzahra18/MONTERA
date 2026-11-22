@@ -87,13 +87,12 @@ namespace PROJEKKKK_PBOO.View
 
             nav.Controls.Add(BuatTombolNavigasi("▦   Dashboard", true, MuatRingkasan));
             nav.Controls.Add(BuatTombolNavigasi("♧   Monitoring Panen", false, BukaMonitoringPanen));
+            nav.Controls.Add(BuatTombolNavigasi("♟   Monitoring Ayam", false, BukaMonitoringAyam));
             if (_isOwner)
             {
-                nav.Controls.Add(BuatTombolNavigasi("♟   Monitoring Ayam", false, () =>
-                    MessageBox.Show("Fitur Monitoring Ayam belum tersedia.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)));
                 nav.Controls.Add(BuatTombolNavigasi("↗   Prediksi Ayam", false, BukaPrediksiAyam));
+                nav.Controls.Add(BuatTombolNavigasi("◷   Prediksi Telur", false, BukaPrediksiTelur));
             }
-            nav.Controls.Add(BuatTombolNavigasi("◷   Prediksi Telur", false, BukaPrediksiTelur));
 
             Panel sidebarFooter = new Panel
             {
@@ -461,6 +460,12 @@ namespace PROJEKKKK_PBOO.View
             using MonitoringPanen form = new MonitoringPanen();
             form.ShowDialog(FindForm());
             MuatRingkasan();
+        }
+
+        private void BukaMonitoringAyam()
+        {
+            using MonitoringAyam form = new MonitoringAyam();
+            form.ShowDialog(FindForm());
         }
 
         private void BukaPrediksiAyam()
