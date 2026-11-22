@@ -6,6 +6,10 @@ namespace PROJEKKKK_PBOO.View
         private System.Windows.Forms.Panel sidebar;
         private System.Windows.Forms.Panel topbar;
         private System.Windows.Forms.Panel contentPanel;
+        private System.Windows.Forms.Panel panelHalaman;
+        private System.Windows.Forms.Panel panelHalamanKonten;
+        private System.Windows.Forms.Button btnKembali;
+        private System.Windows.Forms.Label lblHalaman;
         private System.Windows.Forms.Label lblBrand;
         private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.Button btnDashboard;
@@ -91,6 +95,10 @@ namespace PROJEKKKK_PBOO.View
             lblTabelPetunjuk = new System.Windows.Forms.Label();
             dgvPanenTerbaru = new System.Windows.Forms.DataGridView();
             lblCatatanKaki = new System.Windows.Forms.Label();
+            panelHalaman = new System.Windows.Forms.Panel();
+            panelHalamanKonten = new System.Windows.Forms.Panel();
+            btnKembali = new System.Windows.Forms.Button();
+            lblHalaman = new System.Windows.Forms.Label();
             sidebar.SuspendLayout();
             topbar.SuspendLayout();
             contentPanel.SuspendLayout();
@@ -318,6 +326,7 @@ namespace PROJEKKKK_PBOO.View
             contentPanel.Controls.Add(lblStatusData);
             contentPanel.Controls.Add(lblSubjudul);
             contentPanel.Controls.Add(lblJudul);
+            contentPanel.Controls.Add(panelHalaman);
             contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             contentPanel.Location = new System.Drawing.Point(220, 58);
             contentPanel.Name = "contentPanel";
@@ -379,7 +388,7 @@ namespace PROJEKKKK_PBOO.View
             cardTotal.Location = new System.Drawing.Point(26, 142);
             cardTotal.Name = "cardTotal";
             cardTotal.Padding = new System.Windows.Forms.Padding(14, 12, 10, 8);
-            cardTotal.Size = new System.Drawing.Size(270, 130);
+            cardTotal.Size = new System.Drawing.Size(260, 130);
             cardTotal.TabIndex = 4;
             // 
             // lblTotalCaption
@@ -389,7 +398,7 @@ namespace PROJEKKKK_PBOO.View
             lblTotalCaption.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
             lblTotalCaption.Location = new System.Drawing.Point(14, 12);
             lblTotalCaption.Name = "lblTotalCaption";
-            lblTotalCaption.Size = new System.Drawing.Size(246, 24);
+            lblTotalCaption.Size = new System.Drawing.Size(236, 24);
             lblTotalCaption.TabIndex = 0;
             lblTotalCaption.Text = "TOTAL TELUR TERDATA";
             // 
@@ -400,7 +409,7 @@ namespace PROJEKKKK_PBOO.View
             lblTotalValue.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
             lblTotalValue.Location = new System.Drawing.Point(14, 36);
             lblTotalValue.Name = "lblTotalValue";
-            lblTotalValue.Size = new System.Drawing.Size(246, 48);
+            lblTotalValue.Size = new System.Drawing.Size(236, 48);
             lblTotalValue.TabIndex = 1;
             lblTotalValue.Text = "0";
             // 
@@ -411,7 +420,7 @@ namespace PROJEKKKK_PBOO.View
             lblTotalNote.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
             lblTotalNote.Location = new System.Drawing.Point(14, 84);
             lblTotalNote.Name = "lblTotalNote";
-            lblTotalNote.Size = new System.Drawing.Size(246, 38);
+            lblTotalNote.Size = new System.Drawing.Size(236, 38);
             lblTotalNote.TabIndex = 2;
             lblTotalNote.Text = "Butir tercatat di semua tanggal";
             // 
@@ -421,10 +430,10 @@ namespace PROJEKKKK_PBOO.View
             cardKualitas.Controls.Add(lblKualitasNote);
             cardKualitas.Controls.Add(lblKualitasValue);
             cardKualitas.Controls.Add(lblKualitasCaption);
-            cardKualitas.Location = new System.Drawing.Point(308, 142);
+            cardKualitas.Location = new System.Drawing.Point(298, 142);
             cardKualitas.Name = "cardKualitas";
             cardKualitas.Padding = new System.Windows.Forms.Padding(14, 12, 10, 8);
-            cardKualitas.Size = new System.Drawing.Size(270, 130);
+            cardKualitas.Size = new System.Drawing.Size(260, 130);
             cardKualitas.TabIndex = 5;
             // 
             // lblKualitasCaption
@@ -434,7 +443,7 @@ namespace PROJEKKKK_PBOO.View
             lblKualitasCaption.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
             lblKualitasCaption.Location = new System.Drawing.Point(14, 12);
             lblKualitasCaption.Name = "lblKualitasCaption";
-            lblKualitasCaption.Size = new System.Drawing.Size(246, 24);
+            lblKualitasCaption.Size = new System.Drawing.Size(236, 24);
             lblKualitasCaption.TabIndex = 0;
             lblKualitasCaption.Text = "KUALITAS TELUR BAIK";
             // 
@@ -445,7 +454,7 @@ namespace PROJEKKKK_PBOO.View
             lblKualitasValue.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
             lblKualitasValue.Location = new System.Drawing.Point(14, 36);
             lblKualitasValue.Name = "lblKualitasValue";
-            lblKualitasValue.Size = new System.Drawing.Size(246, 48);
+            lblKualitasValue.Size = new System.Drawing.Size(236, 48);
             lblKualitasValue.TabIndex = 1;
             lblKualitasValue.Text = "—";
             // 
@@ -456,7 +465,7 @@ namespace PROJEKKKK_PBOO.View
             lblKualitasNote.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
             lblKualitasNote.Location = new System.Drawing.Point(14, 84);
             lblKualitasNote.Name = "lblKualitasNote";
-            lblKualitasNote.Size = new System.Drawing.Size(246, 38);
+            lblKualitasNote.Size = new System.Drawing.Size(236, 38);
             lblKualitasNote.TabIndex = 2;
             lblKualitasNote.Text = "Telur baik ÷ total panen";
             // 
@@ -466,10 +475,10 @@ namespace PROJEKKKK_PBOO.View
             cardRataRata.Controls.Add(lblRataNote);
             cardRataRata.Controls.Add(lblRataValue);
             cardRataRata.Controls.Add(lblRataCaption);
-            cardRataRata.Location = new System.Drawing.Point(590, 142);
+            cardRataRata.Location = new System.Drawing.Point(570, 142);
             cardRataRata.Name = "cardRataRata";
             cardRataRata.Padding = new System.Windows.Forms.Padding(14, 12, 10, 8);
-            cardRataRata.Size = new System.Drawing.Size(270, 130);
+            cardRataRata.Size = new System.Drawing.Size(260, 130);
             cardRataRata.TabIndex = 6;
             // 
             // lblRataCaption
@@ -479,7 +488,7 @@ namespace PROJEKKKK_PBOO.View
             lblRataCaption.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
             lblRataCaption.Location = new System.Drawing.Point(14, 12);
             lblRataCaption.Name = "lblRataCaption";
-            lblRataCaption.Size = new System.Drawing.Size(246, 24);
+            lblRataCaption.Size = new System.Drawing.Size(236, 24);
             lblRataCaption.TabIndex = 0;
             lblRataCaption.Text = "RATA-RATA PANEN";
             // 
@@ -490,7 +499,7 @@ namespace PROJEKKKK_PBOO.View
             lblRataValue.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
             lblRataValue.Location = new System.Drawing.Point(14, 36);
             lblRataValue.Name = "lblRataValue";
-            lblRataValue.Size = new System.Drawing.Size(246, 48);
+            lblRataValue.Size = new System.Drawing.Size(236, 48);
             lblRataValue.TabIndex = 1;
             lblRataValue.Text = "—";
             // 
@@ -501,7 +510,7 @@ namespace PROJEKKKK_PBOO.View
             lblRataNote.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
             lblRataNote.Location = new System.Drawing.Point(14, 84);
             lblRataNote.Name = "lblRataNote";
-            lblRataNote.Size = new System.Drawing.Size(246, 38);
+            lblRataNote.Size = new System.Drawing.Size(236, 38);
             lblRataNote.TabIndex = 2;
             lblRataNote.Text = "Butir per hari pencatatan";
             // 
@@ -511,10 +520,10 @@ namespace PROJEKKKK_PBOO.View
             cardPrediksi.Controls.Add(lblPrediksiNote);
             cardPrediksi.Controls.Add(lblPrediksiValue);
             cardPrediksi.Controls.Add(lblPrediksiCaption);
-            cardPrediksi.Location = new System.Drawing.Point(872, 142);
+            cardPrediksi.Location = new System.Drawing.Point(842, 142);
             cardPrediksi.Name = "cardPrediksi";
             cardPrediksi.Padding = new System.Windows.Forms.Padding(14, 12, 10, 8);
-            cardPrediksi.Size = new System.Drawing.Size(284, 130);
+            cardPrediksi.Size = new System.Drawing.Size(260, 130);
             cardPrediksi.TabIndex = 7;
             // 
             // lblPrediksiCaption
@@ -524,7 +533,7 @@ namespace PROJEKKKK_PBOO.View
             lblPrediksiCaption.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
             lblPrediksiCaption.Location = new System.Drawing.Point(14, 12);
             lblPrediksiCaption.Name = "lblPrediksiCaption";
-            lblPrediksiCaption.Size = new System.Drawing.Size(260, 24);
+            lblPrediksiCaption.Size = new System.Drawing.Size(236, 24);
             lblPrediksiCaption.TabIndex = 0;
             lblPrediksiCaption.Text = "PERKIRAAN PANEN BERIKUTNYA";
             // 
@@ -535,7 +544,7 @@ namespace PROJEKKKK_PBOO.View
             lblPrediksiValue.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
             lblPrediksiValue.Location = new System.Drawing.Point(14, 36);
             lblPrediksiValue.Name = "lblPrediksiValue";
-            lblPrediksiValue.Size = new System.Drawing.Size(260, 48);
+            lblPrediksiValue.Size = new System.Drawing.Size(236, 48);
             lblPrediksiValue.TabIndex = 1;
             lblPrediksiValue.Text = "—";
             // 
@@ -546,7 +555,7 @@ namespace PROJEKKKK_PBOO.View
             lblPrediksiNote.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
             lblPrediksiNote.Location = new System.Drawing.Point(14, 84);
             lblPrediksiNote.Name = "lblPrediksiNote";
-            lblPrediksiNote.Size = new System.Drawing.Size(260, 38);
+            lblPrediksiNote.Size = new System.Drawing.Size(236, 38);
             lblPrediksiNote.TabIndex = 2;
             lblPrediksiNote.Text = "Belum ada data panen";
             // 
@@ -611,12 +620,59 @@ namespace PROJEKKKK_PBOO.View
             lblCatatanKaki.TabIndex = 11;
             lblCatatanKaki.Text = "Persentase kualitas menunjukkan bagian telur baik dari seluruh telur yang dicatat; angka prediksi hanya perkiraan berdasarkan riwayat.";
             // 
+            // panelHalaman
+            // 
+            panelHalaman.BackColor = System.Drawing.Color.FromArgb(245, 248, 252);
+            panelHalaman.Controls.Add(panelHalamanKonten);
+            panelHalaman.Controls.Add(btnKembali);
+            panelHalaman.Controls.Add(lblHalaman);
+            panelHalaman.Dock = System.Windows.Forms.DockStyle.Fill;
+            panelHalaman.Location = new System.Drawing.Point(24, 18);
+            panelHalaman.Name = "panelHalaman";
+            panelHalaman.Size = new System.Drawing.Size(1156, 763);
+            panelHalaman.TabIndex = 12;
+            panelHalaman.Visible = false;
+            // 
+            // btnKembali
+            // 
+            btnKembali.BackColor = System.Drawing.Color.FromArgb(0, 111, 77);
+            btnKembali.FlatAppearance.BorderSize = 0;
+            btnKembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnKembali.ForeColor = System.Drawing.Color.White;
+            btnKembali.Location = new System.Drawing.Point(12, 10);
+            btnKembali.Name = "btnKembali";
+            btnKembali.Size = new System.Drawing.Size(130, 38);
+            btnKembali.TabIndex = 0;
+            btnKembali.Text = "← Dashboard";
+            btnKembali.UseVisualStyleBackColor = false;
+            // 
+            // lblHalaman
+            // 
+            lblHalaman.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            lblHalaman.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
+            lblHalaman.Location = new System.Drawing.Point(160, 10);
+            lblHalaman.Name = "lblHalaman";
+            lblHalaman.Size = new System.Drawing.Size(850, 38);
+            lblHalaman.TabIndex = 1;
+            lblHalaman.Text = "Halaman";
+            lblHalaman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelHalamanKonten
+            // 
+            panelHalamanKonten.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            panelHalamanKonten.BackColor = System.Drawing.Color.FromArgb(245, 248, 252);
+            panelHalamanKonten.Location = new System.Drawing.Point(0, 58);
+            panelHalamanKonten.Name = "panelHalamanKonten";
+            panelHalamanKonten.Size = new System.Drawing.Size(1156, 705);
+            panelHalamanKonten.TabIndex = 2;
+            // 
             // Beranda
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.Color.FromArgb(245, 248, 252);
             ClientSize = new System.Drawing.Size(1424, 861);
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             Controls.Add(contentPanel);
             Controls.Add(topbar);
             Controls.Add(sidebar);
@@ -627,6 +683,7 @@ namespace PROJEKKKK_PBOO.View
             sidebar.ResumeLayout(false);
             topbar.ResumeLayout(false);
             contentPanel.ResumeLayout(false);
+            panelHalaman.ResumeLayout(false);
             cardTotal.ResumeLayout(false);
             cardKualitas.ResumeLayout(false);
             cardRataRata.ResumeLayout(false);

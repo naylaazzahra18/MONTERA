@@ -264,6 +264,7 @@
             BackColor = Color.FromArgb(245, 248, 252);
             ClientSize = new Size(1000, 640);
             MinimumSize = new Size(1000, 640);
+            WindowState = FormWindowState.Maximized;
             Controls.Add(lblJudul);
             Controls.Add(lblPetunjuk);
             Controls.Add(panelRingkasan);

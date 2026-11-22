@@ -1,7 +1,7 @@
-﻿using PROJEKKKK_PBOO.Controller;
-using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows.Forms;
+using PROJEKKKK_PBOO.Controller;
+using PROJEKKKK_PBOO.Models;
 
 namespace PROJEKKKK_PBOO.PrediksiAyam
 {
@@ -12,92 +12,39 @@ namespace PROJEKKKK_PBOO.PrediksiAyam
         public PrediksiAyamSakit()
         {
             InitializeComponent();
-            // Menghubungkan tombol
-            btnSimpan.Click += btnSimpan_Click;
-            btnReset.Click += btnReset_Click;
-            btnHapus.Click += btnHapus_Click;
+            MuatRiwayatMonitoring();
         }
 
-        // TOMBOL SIMPAN
-        private void btnSimpan_Click(object sender, EventArgs e)
+        private void btnMuatUlang_Click(object? sender, System.EventArgs e)
         {
-            DateTime tanggal;
-            int jumlahAyam, ayamSakit;
+            MuatRiwayatMonitoring();
+        }
 
-            if (!DateTime.TryParseExact(
-                txtTanggal.Text, "dd/MM/yyyy",
-                CultureInfo.InvariantCulture, DateTimeStyles.None, out tanggal))
+        private void MuatRiwayatMonitoring()
+        {
+            IReadOnlyList<HasilPrediksiAyam> hasil = _controller.AmbilRiwayatPrediksi();
+            dgvHasil.Rows.Clear();
+
+            foreach (HasilPrediksiAyam data in hasil.OrderByDescending(item => item.Tanggal))
             {
-                MessageBox.Show("Format tanggal harus dd/MM/yyyy!");
-                return;
-            }
-
-            if (!int.TryParse(txtJumlahAyam.Text, out jumlahAyam) ||
-                !int.TryParse(txtAyamSakit.Text, out ayamSakit))
-            {
-                MessageBox.Show("Masukkan jumlah ayam dengan benar!");
-                return;
-            }
-
-            try
-            {
-                bool dataAwal = dgvHasil.Rows.Count == 0;
-                double sebelumnya = dataAwal
-                    ? 0
-                    : Convert.ToDouble(dgvHasil.Rows[dgvHasil.Rows.Count - 1].Cells[3].Value);
-                string status = _controller.HitungPrediksi(
-                    jumlahAyam,
-                    ayamSakit,
-                    sebelumnya,
-                    dataAwal,
-                    out double persentase);
-
                 dgvHasil.Rows.Add(
-                    tanggal.ToString("dd/MM/yyyy"),
-                    jumlahAyam,
-                    ayamSakit,
-                    persentase,
-                    status);
-
-                MessageBox.Show("Data berhasil disimpan!");
-
-                txtTanggal.Clear();
-                txtJumlahAyam.Clear();
-                txtAyamSakit.Clear();
-                txtTanggal.Focus();
-            }
-            catch (ArgumentException ex)
-            {
-                MessageBox.Show(ex.Message);
+                    data.Tanggal.ToString("dd/MM/yyyy", CultureInfo.CurrentCulture),
+                    data.JumlahAyamHidup.ToString("N0", CultureInfo.CurrentCulture),
+                    data.JumlahAyamSakit.ToString("N0", CultureInfo.CurrentCulture),
+                    data.JumlahAyamMati.ToString("N0", CultureInfo.CurrentCulture),
+                    data.PersentaseSakit.ToString("F2", CultureInfo.CurrentCulture) + "%",
+                    data.StatusTren);
             }
 
-        }
-        // TOMBOL RESET
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            txtTanggal.Clear();
-            txtJumlahAyam.Clear();
-            txtAyamSakit.Clear();
-            txtTanggal.Focus();
-        }
-        // TOMBOL HAPUS
-        private void btnHapus_Click(object sender, EventArgs e)
-        {
-            if (dgvHasil.SelectedRows.Count == 0)
+            if (hasil.Count == 0)
             {
-                MessageBox.Show("Pilih data yang ingin dihapus!");
+                lblRingkasan.Text = "Belum ada data. Tambahkan catatan pada menu Monitoring Ayam.";
                 return;
             }
-            foreach (DataGridViewRow row in dgvHasil.SelectedRows)
-            {
-                if (!row.IsNewRow)
-                {
-                    dgvHasil.Rows.Remove(row);
-                }
-            }
-            MessageBox.Show("Data berhasil dihapus!");
+
+            HasilPrediksiAyam terbaru = hasil[hasil.Count - 1];
+            lblRingkasan.Text = $"Data terbaru {terbaru.Tanggal.ToString("dd MMM yyyy", CultureInfo.GetCultureInfo("id-ID"))}  |  " +
+                $"Ayam sakit {terbaru.PersentaseSakit:F2}% dari ayam hidup  |  Tren: {terbaru.StatusTren}.";
         }
-        private void pictureBox1_Click(object sender, EventArgs e) { }
-        private void txtTanggal_TextChanged(object sender, EventArgs e) { }
     }
 }

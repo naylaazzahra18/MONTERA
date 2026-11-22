@@ -14,6 +14,7 @@ namespace PROJEKKKK_PBOO.View
     public partial class Beranda : Form
     {
         private readonly bool _isOwner;
+        private Form? _halamanAktif;
         private readonly PanenController _panenController = new PanenController();
         private readonly PrediksiService _prediksiService = new PrediksiService();
 
@@ -49,16 +50,13 @@ namespace PROJEKKKK_PBOO.View
         private void HubungkanAksi()
         {
             btnKeluar.Click += (_, _) => Close();
+            btnKembali.Click += (_, _) => TampilkanDashboard();
             btnInputPanen.Click += (_, _) => BukaMonitoringPanen();
             btnMonitoringPanen.Click += (_, _) => BukaMonitoringPanen();
             btnPrediksiTelur.Click += (_, _) => BukaPrediksiTelur();
             btnPrediksiAyam.Click += (_, _) => BukaPrediksiAyam();
-            btnMonitoringAyam.Click += (_, _) => MessageBox.Show(
-                "Fitur Monitoring Ayam belum tersedia.",
-                "Informasi",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-            btnDashboard.Click += (_, _) => MuatRingkasan();
+            btnMonitoringAyam.Click += (_, _) => BukaMonitoringAyam();
+            btnDashboard.Click += (_, _) => TampilkanDashboard();
         }
 
         private void MuatRingkasan()
@@ -117,21 +115,56 @@ namespace PROJEKKKK_PBOO.View
 
         private void BukaMonitoringPanen()
         {
-            using MonitoringPanen form = new MonitoringPanen();
-            form.ShowDialog(this);
-            MuatRingkasan();
+            TampilkanHalaman(new MonitoringPanen(), "Monitoring Panen");
         }
 
         private void BukaPrediksiAyam()
         {
-            using PrediksiAyamSakit form = new PrediksiAyamSakit();
-            form.ShowDialog(this);
+            TampilkanHalaman(new PrediksiAyamSakit(), "Prediksi Kesehatan Ayam");
+        }
+
+        private void BukaMonitoringAyam()
+        {
+            TampilkanHalaman(new MonitoringAyam(), "Monitoring Ayam");
         }
 
         private void BukaPrediksiTelur()
         {
-            using PrediksiTelur form = new PrediksiTelur();
-            form.ShowDialog(this);
+            TampilkanHalaman(new PrediksiTelur(), "Prediksi Produksi Telur");
+        }
+
+        private void TampilkanHalaman(Form halaman, string judul)
+        {
+            if (_halamanAktif != null)
+            {
+                panelHalamanKonten.Controls.Remove(_halamanAktif);
+                _halamanAktif.Dispose();
+            }
+
+            _halamanAktif = halaman;
+            halaman.TopLevel = false;
+            halaman.FormBorderStyle = FormBorderStyle.None;
+            halaman.WindowState = FormWindowState.Normal;
+            halaman.MinimumSize = System.Drawing.Size.Empty;
+            halaman.ShowInTaskbar = false;
+            halaman.Dock = DockStyle.Fill;
+            panelHalamanKonten.Controls.Add(halaman);
+            lblHalaman.Text = judul;
+            panelHalaman.Visible = true;
+            panelHalaman.BringToFront();
+            halaman.Show();
+        }
+
+        private void TampilkanDashboard()
+        {
+            if (_halamanAktif != null)
+            {
+                panelHalamanKonten.Controls.Remove(_halamanAktif);
+                _halamanAktif.Dispose();
+                _halamanAktif = null;
+            }
+
+            panelHalaman.Visible = false;
             MuatRingkasan();
         }
     }

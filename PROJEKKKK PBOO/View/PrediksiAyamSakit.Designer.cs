@@ -45,9 +45,13 @@
             lblJudul = new Label();
             lblPetunjuk = new Label();
             lblJudulRiwayat = new Label();
+            lblRingkasan = new Label();
+            lblSumberData = new Label();
+            btnMuatUlang = new Button();
             Tanggal = new DataGridViewTextBoxColumn();
             JumlahAyam = new DataGridViewTextBoxColumn();
             AyamSakit = new DataGridViewTextBoxColumn();
+            AyamMati = new DataGridViewTextBoxColumn();
             Persentase = new DataGridViewTextBoxColumn();
             Status = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvHasil).BeginInit();
@@ -60,7 +64,6 @@
             txtTanggal.Name = "txtTanggal";
             txtTanggal.Size = new Size(197, 27);
             txtTanggal.TabIndex = 0;
-            txtTanggal.TextChanged += txtTanggal_TextChanged;
             // 
             // txtJumlahAyam
             // 
@@ -115,12 +118,12 @@
             dgvHasil.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHasil.MultiSelect = true;
             dgvHasil.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHasil.Columns.AddRange(new DataGridViewColumn[] { Tanggal, JumlahAyam, AyamSakit, Persentase, Status });
+            dgvHasil.Columns.AddRange(new DataGridViewColumn[] { Tanggal, JumlahAyam, AyamSakit, AyamMati, Persentase, Status });
             dgvHasil.Location = new Point(16, 48);
             dgvHasil.Name = "dgvHasil";
             dgvHasil.RowHeadersVisible = false;
             dgvHasil.RowHeadersWidth = 51;
-            dgvHasil.Size = new Size(1032, 320);
+            dgvHasil.Size = new Size(1032, 420);
             dgvHasil.TabIndex = 6;
             dgvHasil.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             // 
@@ -131,13 +134,18 @@
             // 
             // JumlahAyam
             // 
-            JumlahAyam.HeaderText = "Jumlah Ayam";
+            JumlahAyam.HeaderText = "Ayam Hidup";
             JumlahAyam.Name = "JumlahAyam";
             // 
             // AyamSakit
             // 
             AyamSakit.HeaderText = "Ayam Sakit";
             AyamSakit.Name = "AyamSakit";
+            // 
+            // AyamMati
+            // 
+            AyamMati.HeaderText = "Ayam Mati";
+            AyamMati.Name = "AyamMati";
             // 
             // Persentase
             // 
@@ -189,35 +197,59 @@
             pictureBox1.Size = new Size(320, 244);
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // panelInput
             // 
             panelInput.BackColor = Color.White;
-            panelInput.Controls.Add(label1);
-            panelInput.Controls.Add(txtTanggal);
-            panelInput.Controls.Add(label2);
-            panelInput.Controls.Add(txtJumlahAyam);
-            panelInput.Controls.Add(label3);
-            panelInput.Controls.Add(txtAyamSakit);
-            panelInput.Controls.Add(pictureBox1);
-            panelInput.Controls.Add(btnSimpan);
-            panelInput.Controls.Add(btnReset);
-            panelInput.Controls.Add(btnHapus);
+            panelInput.Controls.Add(lblSumberData);
+            panelInput.Controls.Add(lblRingkasan);
+            panelInput.Controls.Add(btnMuatUlang);
             panelInput.Location = new Point(28, 102);
             panelInput.Name = "panelInput";
-            panelInput.Size = new Size(1064, 192);
+            panelInput.Size = new Size(1064, 100);
             panelInput.TabIndex = 11;
             // 
             // panelRiwayat
             // 
             panelRiwayat.BackColor = Color.White;
-            panelRiwayat.Location = new Point(28, 330);
+            panelRiwayat.Location = new Point(28, 222);
             panelRiwayat.Name = "panelRiwayat";
-            panelRiwayat.Size = new Size(1064, 385);
+            panelRiwayat.Size = new Size(1064, 493);
+            panelRiwayat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelRiwayat.TabIndex = 12;
             panelRiwayat.Controls.Add(lblJudulRiwayat);
             panelRiwayat.Controls.Add(dgvHasil);
+            // 
+            // lblSumberData
+            // 
+            lblSumberData.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblSumberData.ForeColor = Color.FromArgb(34, 49, 69);
+            lblSumberData.Location = new Point(20, 15);
+            lblSumberData.Name = "lblSumberData";
+            lblSumberData.Size = new Size(730, 28);
+            lblSumberData.Text = "Sumber data: Monitoring Ayam (status baik, sakit, dan mati)";
+            // 
+            // lblRingkasan
+            // 
+            lblRingkasan.Font = new Font("Segoe UI", 9F);
+            lblRingkasan.ForeColor = Color.FromArgb(105, 121, 139);
+            lblRingkasan.Location = new Point(20, 48);
+            lblRingkasan.Name = "lblRingkasan";
+            lblRingkasan.Size = new Size(760, 34);
+            lblRingkasan.Text = "Data prediksi akan dimuat dari catatan monitoring.";
+            // 
+            // btnMuatUlang
+            // 
+            btnMuatUlang.BackColor = Color.FromArgb(0, 111, 77);
+            btnMuatUlang.FlatAppearance.BorderSize = 0;
+            btnMuatUlang.FlatStyle = FlatStyle.Flat;
+            btnMuatUlang.ForeColor = Color.White;
+            btnMuatUlang.Location = new Point(850, 30);
+            btnMuatUlang.Name = "btnMuatUlang";
+            btnMuatUlang.Size = new Size(190, 40);
+            btnMuatUlang.Text = "Muat Ulang Monitoring";
+            btnMuatUlang.UseVisualStyleBackColor = false;
+            btnMuatUlang.Click += btnMuatUlang_Click;
             // 
             // lblJudul
             // 
@@ -245,7 +277,7 @@
             lblJudulRiwayat.Name = "lblJudulRiwayat";
             lblJudulRiwayat.Size = new Size(700, 28);
             lblJudulRiwayat.TabIndex = 15;
-            lblJudulRiwayat.Text = "Riwayat Prediksi Kesehatan Ayam";
+            lblJudulRiwayat.Text = "Riwayat Kesehatan & Tren Ayam";
             // 
             // PrediksiAyamSakit
             // 
@@ -254,35 +286,12 @@
             BackColor = Color.FromArgb(245, 248, 252);
             ClientSize = new Size(1120, 760);
             MinimumSize = new Size(1000, 700);
+            WindowState = FormWindowState.Maximized;
             Controls.Add(panelInput);
             Controls.Add(panelRiwayat);
             Controls.Add(lblJudul);
             Controls.Add(lblPetunjuk);
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.Location = new Point(27, 18);
-            label1.Text = "TANGGAL PENCATATAN";
-            txtTanggal.Location = new Point(27, 48);
-            txtTanggal.Size = new Size(210, 32);
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label2.Location = new Point(272, 18);
-            label2.Text = "JUMLAH AYAM";
-            txtJumlahAyam.Location = new Point(272, 48);
-            txtJumlahAyam.Size = new Size(210, 32);
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label3.Location = new Point(517, 18);
-            label3.Text = "JUMLAH AYAM SAKIT";
-            txtAyamSakit.Location = new Point(517, 48);
-            txtAyamSakit.Size = new Size(210, 32);
-            pictureBox1.Location = new Point(777, 14);
-            pictureBox1.Size = new Size(235, 155);
-            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            btnSimpan.Text = "Simpan Catatan";
-            btnSimpan.Location = new Point(27, 116);
-            btnSimpan.Size = new Size(155, 38);
-            btnReset.Location = new Point(197, 116);
-            btnReset.Size = new Size(110, 38);
-            btnHapus.Location = new Point(322, 116);
-            btnHapus.Size = new Size(110, 38);
+            lblPetunjuk.Text = "Persentase sakit = jumlah ayam sakit ÷ (ayam baik + ayam sakit) × 100%. Ayam mati tidak dihitung sebagai ayam hidup.";
             Name = "PrediksiAyamSakit";
             Text = "MONTERA | Prediksi Kesehatan Ayam";
             ((System.ComponentModel.ISupportInitialize)dgvHasil).EndInit();
@@ -309,9 +318,13 @@
         private Label lblJudul;
         private Label lblPetunjuk;
         private Label lblJudulRiwayat;
+        private Label lblRingkasan;
+        private Label lblSumberData;
+        private Button btnMuatUlang;
         private DataGridViewTextBoxColumn Tanggal;
         private DataGridViewTextBoxColumn JumlahAyam;
         private DataGridViewTextBoxColumn AyamSakit;
+        private DataGridViewTextBoxColumn AyamMati;
         private DataGridViewTextBoxColumn Persentase;
         private DataGridViewTextBoxColumn Status;
     }
