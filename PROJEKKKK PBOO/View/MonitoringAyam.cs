@@ -17,8 +17,6 @@ namespace PROJEKKKK_PBOO.View
             InitializeComponent();
             panelInput.Resize += (_, _) => AturLayoutInput();
             panelFilter.Resize += (_, _) => AturLayoutFilter();
-            chkBaik.Checked = true;
-            AturInputJumlah();
             AturLayoutInput();
             AturLayoutFilter();
             MuatPilihanBulan();
@@ -69,22 +67,6 @@ namespace PROJEKKKK_PBOO.View
             cmbFilterBulan.SelectedIndex = 0;
         }
 
-        private void chkStatus_CheckedChanged(object? sender, EventArgs e)
-        {
-            AturInputJumlah();
-        }
-
-        private void AturInputJumlah()
-        {
-            txtJumlahBaik.Enabled = chkBaik.Checked;
-            txtJumlahSakit.Enabled = chkSakit.Checked;
-            txtJumlahMati.Enabled = chkMati.Checked;
-
-            if (!chkBaik.Checked) txtJumlahBaik.Clear();
-            if (!chkSakit.Checked) txtJumlahSakit.Clear();
-            if (!chkMati.Checked) txtJumlahMati.Clear();
-        }
-
         private void MuatTabel()
         {
             List<DataAyam> seluruhData = _controller.AmbilSemuaData().ToList();
@@ -123,27 +105,24 @@ namespace PROJEKKKK_PBOO.View
 
                 int index = dgvAyam.Rows.Add(
                     grup.Key.ToString("dd-MM-yyyy"),
-                    jumlahBaik.ToString("N0", CultureInfo.CurrentCulture),
-                    jumlahSakit.ToString("N0", CultureInfo.CurrentCulture),
-                    jumlahMati.ToString("N0", CultureInfo.CurrentCulture),
+                    keterangan,
                     totalHarian.ToString("N0", CultureInfo.CurrentCulture),
-                    keterangan);
+                    jumlahSakit.ToString("N0", CultureInfo.CurrentCulture));
                 dgvAyam.Rows[index].Tag = grup.Key;
             }
 
             int totalBaik = hasil.Sum(grup => grup.Where(item => item.Status == StatusAyam.Baik).Sum(item => item.Jumlah));
             int totalSakit = hasil.Sum(grup => grup.Where(item => item.Status == StatusAyam.Sakit).Sum(item => item.Jumlah));
-            int totalMati = hasil.Sum(grup => grup.Where(item => item.Status == StatusAyam.Mati).Sum(item => item.Jumlah));
-            lblRingkasan.Text = $"{hasil.Count} tanggal  |  Ayam baik: {totalBaik:N0}  |  Ayam sakit: {totalSakit:N0}  |  Ayam mati: {totalMati:N0}";
+            lblRingkasan.Text = $"{hasil.Count} tanggal  |  Jumlah Ayam: {totalBaik:N0}  |  Ayam sakit: {totalSakit:N0}";
         }
 
         private void btnSimpan_Click(object? sender, EventArgs e)
         {
             string hasil = _controller.SimpanRekap(
                 dtpTanggal.Value,
-                chkBaik.Checked, txtJumlahBaik.Text.Trim(),
-                chkSakit.Checked, txtJumlahSakit.Text.Trim(),
-                chkMati.Checked, txtJumlahMati.Text.Trim(),
+                true, txtJumlahBaik.Text.Trim(),
+                true, txtJumlahSakit.Text.Trim(),
+                false, string.Empty,
                 txtKeterangan.Text);
             if (hasil.Length > 0)
             {
@@ -154,12 +133,7 @@ namespace PROJEKKKK_PBOO.View
             MessageBox.Show("Rekap kondisi ayam berhasil disimpan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtJumlahBaik.Clear();
             txtJumlahSakit.Clear();
-            txtJumlahMati.Clear();
             txtKeterangan.Clear();
-            chkBaik.Checked = true;
-            chkSakit.Checked = false;
-            chkMati.Checked = false;
-            AturInputJumlah();
             MuatTabel();
         }
 
@@ -167,12 +141,7 @@ namespace PROJEKKKK_PBOO.View
         {
             txtJumlahBaik.Clear();
             txtJumlahSakit.Clear();
-            txtJumlahMati.Clear();
             txtKeterangan.Clear();
-            chkBaik.Checked = true;
-            chkSakit.Checked = false;
-            chkMati.Checked = false;
-            AturInputJumlah();
             dtpTanggal.Value = DateTime.Today;
             txtJumlahBaik.Focus();
         }
@@ -211,5 +180,16 @@ namespace PROJEKKKK_PBOO.View
             if (IsHandleCreated)
                 MuatTabel();
         }
+
+        private void txtJumlahBaik_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvAyam_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }

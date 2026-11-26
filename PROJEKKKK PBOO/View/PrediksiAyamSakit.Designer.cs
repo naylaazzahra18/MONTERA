@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrediksiAyamSakit));
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             txtTanggal = new TextBox();
             txtJumlahAyam = new TextBox();
             txtAyamSakit = new TextBox();
@@ -41,21 +45,22 @@
             btnHapus = new Button();
             pictureBox1 = new PictureBox();
             panelInput = new Panel();
+            lblSumberData = new Label();
+            lblRingkasan = new Label();
+            btnMuatUlang = new Button();
             panelRiwayat = new Panel();
+            lblJudulRiwayat = new Label();
             lblJudul = new Label();
             lblPetunjuk = new Label();
-            lblJudulRiwayat = new Label();
-            lblRingkasan = new Label();
-            lblSumberData = new Label();
-            btnMuatUlang = new Button();
             Tanggal = new DataGridViewTextBoxColumn();
             JumlahAyam = new DataGridViewTextBoxColumn();
             AyamSakit = new DataGridViewTextBoxColumn();
-            AyamMati = new DataGridViewTextBoxColumn();
             Persentase = new DataGridViewTextBoxColumn();
             Status = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvHasil).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelInput.SuspendLayout();
+            panelRiwayat.SuspendLayout();
             SuspendLayout();
             // 
             // txtTanggal
@@ -111,63 +116,44 @@
             // 
             // dgvHasil
             // 
-            dgvHasil.BackgroundColor = Color.White;
-            dgvHasil.BorderStyle = BorderStyle.None;
-            dgvHasil.GridColor = Color.FromArgb(225, 232, 240);
-            dgvHasil.EnableHeadersVisualStyles = false;
-            dgvHasil.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(231, 240, 250);
-            dgvHasil.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(34, 49, 69);
-            dgvHasil.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dgvHasil.ColumnHeadersHeight = 38;
-            dgvHasil.DefaultCellStyle.SelectionBackColor = Color.FromArgb(213, 232, 214);
-            dgvHasil.DefaultCellStyle.SelectionForeColor = Color.FromArgb(34, 49, 69);
-            dgvHasil.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(246, 249, 244);
-            dgvHasil.RowTemplate.Height = 34;
             dgvHasil.AllowUserToAddRows = false;
             dgvHasil.AllowUserToDeleteRows = false;
-            dgvHasil.ReadOnly = true;
-            dgvHasil.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvHasil.MultiSelect = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(246, 249, 244);
+            dgvHasil.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvHasil.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvHasil.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHasil.Columns.AddRange(new DataGridViewColumn[] { Tanggal, JumlahAyam, AyamSakit, AyamMati, Persentase, Status });
+            dgvHasil.BackgroundColor = Color.White;
+            dgvHasil.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(231, 240, 250);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(34, 49, 69);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvHasil.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvHasil.ColumnHeadersHeight = 38;
+            dgvHasil.Columns.AddRange(new DataGridViewColumn[] { Tanggal, JumlahAyam, AyamSakit, Persentase, Status });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(213, 232, 214);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(34, 49, 69);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvHasil.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvHasil.EnableHeadersVisualStyles = false;
+            dgvHasil.GridColor = Color.FromArgb(225, 232, 240);
             dgvHasil.Location = new Point(16, 48);
+            dgvHasil.MultiSelect = false;
             dgvHasil.Name = "dgvHasil";
+            dgvHasil.ReadOnly = true;
             dgvHasil.RowHeadersVisible = false;
             dgvHasil.RowHeadersWidth = 51;
+            dgvHasil.RowTemplate.Height = 34;
+            dgvHasil.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHasil.Size = new Size(1032, 420);
             dgvHasil.TabIndex = 6;
-            dgvHasil.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            // 
-            // Tanggal
-            // 
-            Tanggal.HeaderText = "Tanggal";
-            Tanggal.Name = "Tanggal";
-            // 
-            // JumlahAyam
-            // 
-            JumlahAyam.HeaderText = "Ayam Hidup";
-            JumlahAyam.Name = "JumlahAyam";
-            // 
-            // AyamSakit
-            // 
-            AyamSakit.HeaderText = "Ayam Sakit";
-            AyamSakit.Name = "AyamSakit";
-            // 
-            // AyamMati
-            // 
-            AyamMati.HeaderText = "Ayam Mati";
-            AyamMati.Name = "AyamMati";
-            // 
-            // Persentase
-            // 
-            Persentase.HeaderText = "Ayam Sakit (%)";
-            Persentase.Name = "Persentase";
-            Persentase.DefaultCellStyle.Format = "F2";
-            // 
-            // Status
-            // 
-            Status.HeaderText = "Perubahan Dibanding Data Sebelumnya";
-            Status.Name = "Status";
             // 
             // btnSimpan
             // 
@@ -211,6 +197,7 @@
             // 
             // panelInput
             // 
+            panelInput.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelInput.BackColor = Color.White;
             panelInput.Controls.Add(lblSumberData);
             panelInput.Controls.Add(lblRingkasan);
@@ -218,19 +205,7 @@
             panelInput.Location = new Point(28, 102);
             panelInput.Name = "panelInput";
             panelInput.Size = new Size(1064, 100);
-            panelInput.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelInput.TabIndex = 11;
-            // 
-            // panelRiwayat
-            // 
-            panelRiwayat.BackColor = Color.White;
-            panelRiwayat.Location = new Point(28, 222);
-            panelRiwayat.Name = "panelRiwayat";
-            panelRiwayat.Size = new Size(1064, 493);
-            panelRiwayat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelRiwayat.TabIndex = 12;
-            panelRiwayat.Controls.Add(lblJudulRiwayat);
-            panelRiwayat.Controls.Add(dgvHasil);
             // 
             // lblSumberData
             // 
@@ -239,6 +214,7 @@
             lblSumberData.Location = new Point(20, 15);
             lblSumberData.Name = "lblSumberData";
             lblSumberData.Size = new Size(730, 28);
+            lblSumberData.TabIndex = 0;
             lblSumberData.Text = "Sumber data: Monitoring Ayam (status baik, sakit, dan mati)";
             // 
             // lblRingkasan
@@ -248,21 +224,43 @@
             lblRingkasan.Location = new Point(20, 48);
             lblRingkasan.Name = "lblRingkasan";
             lblRingkasan.Size = new Size(760, 34);
+            lblRingkasan.TabIndex = 1;
             lblRingkasan.Text = "Data prediksi akan dimuat dari catatan monitoring.";
             // 
             // btnMuatUlang
             // 
+            btnMuatUlang.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMuatUlang.BackColor = Color.FromArgb(0, 111, 77);
             btnMuatUlang.FlatAppearance.BorderSize = 0;
             btnMuatUlang.FlatStyle = FlatStyle.Flat;
             btnMuatUlang.ForeColor = Color.White;
-            btnMuatUlang.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnMuatUlang.Location = new Point(850, 30);
+            btnMuatUlang.Location = new Point(1714, 30);
             btnMuatUlang.Name = "btnMuatUlang";
             btnMuatUlang.Size = new Size(190, 40);
+            btnMuatUlang.TabIndex = 2;
             btnMuatUlang.Text = "Muat Ulang Monitoring";
             btnMuatUlang.UseVisualStyleBackColor = false;
             btnMuatUlang.Click += btnMuatUlang_Click;
+            // 
+            // panelRiwayat
+            // 
+            panelRiwayat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelRiwayat.BackColor = Color.White;
+            panelRiwayat.Controls.Add(lblJudulRiwayat);
+            panelRiwayat.Controls.Add(dgvHasil);
+            panelRiwayat.Location = new Point(28, 222);
+            panelRiwayat.Name = "panelRiwayat";
+            panelRiwayat.Size = new Size(1064, 493);
+            panelRiwayat.TabIndex = 12;
+            // 
+            // lblJudulRiwayat
+            // 
+            lblJudulRiwayat.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblJudulRiwayat.Location = new Point(16, 14);
+            lblJudulRiwayat.Name = "lblJudulRiwayat";
+            lblJudulRiwayat.Size = new Size(700, 28);
+            lblJudulRiwayat.TabIndex = 15;
+            lblJudulRiwayat.Text = "Riwayat Kesehatan & Tren Ayam";
             // 
             // lblJudul
             // 
@@ -281,16 +279,44 @@
             lblPetunjuk.Name = "lblPetunjuk";
             lblPetunjuk.Size = new Size(950, 30);
             lblPetunjuk.TabIndex = 14;
-            lblPetunjuk.Text = "Persentase ayam sakit = jumlah ayam sakit ÷ jumlah ayam × 100%. Status membandingkan persentase dengan catatan sebelumnya.";
+            lblPetunjuk.Text = "Persentase sakit = jumlah ayam sakit ÷ (ayam baik + ayam sakit) × 100%. Ayam mati tidak dihitung sebagai ayam hidup.";
             // 
-            // lblJudulRiwayat
+            // Tanggal
             // 
-            lblJudulRiwayat.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblJudulRiwayat.Location = new Point(16, 14);
-            lblJudulRiwayat.Name = "lblJudulRiwayat";
-            lblJudulRiwayat.Size = new Size(700, 28);
-            lblJudulRiwayat.TabIndex = 15;
-            lblJudulRiwayat.Text = "Riwayat Kesehatan & Tren Ayam";
+            Tanggal.HeaderText = "Tanggal";
+            Tanggal.MinimumWidth = 6;
+            Tanggal.Name = "Tanggal";
+            Tanggal.ReadOnly = true;
+            // 
+            // JumlahAyam
+            // 
+            JumlahAyam.HeaderText = "Total Ayam";
+            JumlahAyam.MinimumWidth = 6;
+            JumlahAyam.Name = "JumlahAyam";
+            JumlahAyam.ReadOnly = true;
+            // 
+            // AyamSakit
+            // 
+            AyamSakit.HeaderText = "Ayam Sakit";
+            AyamSakit.MinimumWidth = 6;
+            AyamSakit.Name = "AyamSakit";
+            AyamSakit.ReadOnly = true;
+            // 
+            // Persentase
+            // 
+            dataGridViewCellStyle3.Format = "F2";
+            Persentase.DefaultCellStyle = dataGridViewCellStyle3;
+            Persentase.HeaderText = "Persentase Ayam Sakit (%)";
+            Persentase.MinimumWidth = 6;
+            Persentase.Name = "Persentase";
+            Persentase.ReadOnly = true;
+            // 
+            // Status
+            // 
+            Status.HeaderText = "Status";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.ReadOnly = true;
             // 
             // PrediksiAyamSakit
             // 
@@ -298,19 +324,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 248, 252);
             ClientSize = new Size(1120, 760);
-            MinimumSize = new Size(1000, 700);
-            WindowState = FormWindowState.Maximized;
             Controls.Add(panelInput);
             Controls.Add(panelRiwayat);
             Controls.Add(lblJudul);
             Controls.Add(lblPetunjuk);
-            lblPetunjuk.Text = "Persentase sakit = jumlah ayam sakit ÷ (ayam baik + ayam sakit) × 100%. Ayam mati tidak dihitung sebagai ayam hidup.";
+            MinimumSize = new Size(1000, 700);
             Name = "PrediksiAyamSakit";
             Text = "MONTERA | Prediksi Kesehatan Ayam";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dgvHasil).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelInput.ResumeLayout(false);
+            panelRiwayat.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -337,7 +363,6 @@
         private DataGridViewTextBoxColumn Tanggal;
         private DataGridViewTextBoxColumn JumlahAyam;
         private DataGridViewTextBoxColumn AyamSakit;
-        private DataGridViewTextBoxColumn AyamMati;
         private DataGridViewTextBoxColumn Persentase;
         private DataGridViewTextBoxColumn Status;
     }

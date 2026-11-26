@@ -34,8 +34,8 @@ namespace PROJEKKKK_PBOO.View
         private void TerapkanPeran()
         {
             lblAktor.Text = _isOwner
-                ? "●  OWNER\n    Pengelola Kandang"
-                : "●  KARYAWAN\n    Operasional Kandang";
+                ? "●  OWNER\n "
+                : "●  KARYAWAN\n";
             lblJudul.Text = _isOwner
                 ? "Dashboard Owner MONTERA"
                 : "Dashboard Karyawan MONTERA";
@@ -167,6 +167,11 @@ namespace PROJEKKKK_PBOO.View
 
             panelHalaman.Visible = false;
             MuatRingkasan();
+        }
+
+        private void lblLive_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

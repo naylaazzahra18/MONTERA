@@ -41,7 +41,6 @@ namespace PROJEKKKK_PBOO.PrediksiAyam
                     data.Tanggal.ToString("dd/MM/yyyy", CultureInfo.CurrentCulture),
                     data.JumlahAyamHidup.ToString("N0", CultureInfo.CurrentCulture),
                     data.JumlahAyamSakit.ToString("N0", CultureInfo.CurrentCulture),
-                    data.JumlahAyamMati.ToString("N0", CultureInfo.CurrentCulture),
                     data.PersentaseSakit.ToString("F2", CultureInfo.CurrentCulture) + "%",
                     data.StatusTren);
             }
@@ -54,7 +53,7 @@ namespace PROJEKKKK_PBOO.PrediksiAyam
 
             HasilPrediksiAyam terbaru = hasil[hasil.Count - 1];
             lblRingkasan.Text = $"Data terbaru {terbaru.Tanggal.ToString("dd MMM yyyy", CultureInfo.GetCultureInfo("id-ID"))}  |  " +
-                $"Ayam sakit {terbaru.PersentaseSakit:F2}% dari ayam hidup  |  Tren: {terbaru.StatusTren}.";
+                $"Total ayam {terbaru.JumlahAyamHidup:N0}  |  Ayam sakit: {terbaru.JumlahAyamSakit:N0} ({terbaru.PersentaseSakit:F2}%)  |  Tren: {terbaru.StatusTren}.";
         }
     }
 }

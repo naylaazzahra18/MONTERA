@@ -56,62 +56,69 @@ namespace PROJEKKKK_PBOO.View
 
         private void InitializeComponent()
         {
-            sidebar = new System.Windows.Forms.Panel();
-            lblBrand = new System.Windows.Forms.Label();
-            lblMenu = new System.Windows.Forms.Label();
-            btnDashboard = new System.Windows.Forms.Button();
-            btnMonitoringPanen = new System.Windows.Forms.Button();
-            btnMonitoringAyam = new System.Windows.Forms.Button();
-            btnPrediksiAyam = new System.Windows.Forms.Button();
-            btnPrediksiTelur = new System.Windows.Forms.Button();
-            lblAktor = new System.Windows.Forms.Label();
-            btnKeluar = new System.Windows.Forms.Button();
-            topbar = new System.Windows.Forms.Panel();
-            lblFacility = new System.Windows.Forms.Label();
-            lblLive = new System.Windows.Forms.Label();
-            lblWaktu = new System.Windows.Forms.Label();
-            contentPanel = new System.Windows.Forms.Panel();
-            lblJudul = new System.Windows.Forms.Label();
-            lblSubjudul = new System.Windows.Forms.Label();
-            lblStatusData = new System.Windows.Forms.Label();
-            btnInputPanen = new System.Windows.Forms.Button();
-            cardTotal = new System.Windows.Forms.Panel();
-            lblTotalCaption = new System.Windows.Forms.Label();
-            lblTotalValue = new System.Windows.Forms.Label();
-            lblTotalNote = new System.Windows.Forms.Label();
-            cardKualitas = new System.Windows.Forms.Panel();
-            lblKualitasCaption = new System.Windows.Forms.Label();
-            lblKualitasValue = new System.Windows.Forms.Label();
-            lblKualitasNote = new System.Windows.Forms.Label();
-            cardRataRata = new System.Windows.Forms.Panel();
-            lblRataCaption = new System.Windows.Forms.Label();
-            lblRataValue = new System.Windows.Forms.Label();
-            lblRataNote = new System.Windows.Forms.Label();
-            cardPrediksi = new System.Windows.Forms.Panel();
-            lblPrediksiCaption = new System.Windows.Forms.Label();
-            lblPrediksiValue = new System.Windows.Forms.Label();
-            lblPrediksiNote = new System.Windows.Forms.Label();
-            lblTabelJudul = new System.Windows.Forms.Label();
-            lblTabelPetunjuk = new System.Windows.Forms.Label();
-            dgvPanenTerbaru = new System.Windows.Forms.DataGridView();
-            lblCatatanKaki = new System.Windows.Forms.Label();
-            panelHalaman = new System.Windows.Forms.Panel();
-            panelHalamanKonten = new System.Windows.Forms.Panel();
-            btnKembali = new System.Windows.Forms.Button();
-            lblHalaman = new System.Windows.Forms.Label();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            sidebar = new Panel();
+            btnKeluar = new Button();
+            lblAktor = new Label();
+            btnPrediksiTelur = new Button();
+            btnPrediksiAyam = new Button();
+            btnMonitoringAyam = new Button();
+            btnMonitoringPanen = new Button();
+            btnDashboard = new Button();
+            lblMenu = new Label();
+            lblBrand = new Label();
+            topbar = new Panel();
+            lblWaktu = new Label();
+            contentPanel = new Panel();
+            lblCatatanKaki = new Label();
+            dgvPanenTerbaru = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            lblTabelPetunjuk = new Label();
+            lblTabelJudul = new Label();
+            cardPrediksi = new Panel();
+            lblPrediksiNote = new Label();
+            lblPrediksiValue = new Label();
+            lblPrediksiCaption = new Label();
+            cardRataRata = new Panel();
+            lblRataNote = new Label();
+            lblRataValue = new Label();
+            lblRataCaption = new Label();
+            cardKualitas = new Panel();
+            lblKualitasNote = new Label();
+            lblKualitasValue = new Label();
+            lblKualitasCaption = new Label();
+            cardTotal = new Panel();
+            lblTotalNote = new Label();
+            lblTotalValue = new Label();
+            lblTotalCaption = new Label();
+            btnInputPanen = new Button();
+            lblStatusData = new Label();
+            lblSubjudul = new Label();
+            lblJudul = new Label();
+            panelHalaman = new Panel();
+            panelHalamanKonten = new Panel();
+            btnKembali = new Button();
+            lblHalaman = new Label();
             sidebar.SuspendLayout();
-            topbar.SuspendLayout();
             contentPanel.SuspendLayout();
-            cardTotal.SuspendLayout();
-            cardKualitas.SuspendLayout();
-            cardRataRata.SuspendLayout();
-            cardPrediksi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPanenTerbaru).BeginInit();
+            cardPrediksi.SuspendLayout();
+            cardRataRata.SuspendLayout();
+            cardKualitas.SuspendLayout();
+            cardTotal.SuspendLayout();
+            panelHalaman.SuspendLayout();
             SuspendLayout();
             // 
             // sidebar
             // 
-            sidebar.BackColor = System.Drawing.Color.White;
+            sidebar.BackColor = Color.White;
             sidebar.Controls.Add(btnKeluar);
             sidebar.Controls.Add(lblAktor);
             sidebar.Controls.Add(btnPrediksiTelur);
@@ -121,199 +128,171 @@ namespace PROJEKKKK_PBOO.View
             sidebar.Controls.Add(btnDashboard);
             sidebar.Controls.Add(lblMenu);
             sidebar.Controls.Add(lblBrand);
-            sidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            sidebar.Location = new System.Drawing.Point(0, 0);
+            sidebar.Dock = DockStyle.Left;
+            sidebar.Location = new Point(0, 0);
             sidebar.Name = "sidebar";
-            sidebar.Padding = new System.Windows.Forms.Padding(14);
-            sidebar.Size = new System.Drawing.Size(220, 861);
+            sidebar.Padding = new Padding(14);
+            sidebar.Size = new Size(220, 861);
             sidebar.TabIndex = 0;
-            // 
-            // lblBrand
-            // 
-            lblBrand.Dock = System.Windows.Forms.DockStyle.Top;
-            lblBrand.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            lblBrand.ForeColor = System.Drawing.Color.FromArgb(0, 111, 77);
-            lblBrand.Location = new System.Drawing.Point(14, 14);
-            lblBrand.Name = "lblBrand";
-            lblBrand.Size = new System.Drawing.Size(192, 68);
-            lblBrand.TabIndex = 0;
-            lblBrand.Text = "🐔  MONTERA\n      MONITORING KANDANG";
-            lblBrand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblMenu
-            // 
-            lblMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            lblMenu.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            lblMenu.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblMenu.Location = new System.Drawing.Point(14, 82);
-            lblMenu.Name = "lblMenu";
-            lblMenu.Padding = new System.Windows.Forms.Padding(5, 0, 0, 6);
-            lblMenu.Size = new System.Drawing.Size(192, 38);
-            lblMenu.TabIndex = 1;
-            lblMenu.Text = "MENU OPERASIONAL";
-            lblMenu.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // btnDashboard
-            // 
-            btnDashboard.BackColor = System.Drawing.Color.FromArgb(0, 111, 77);
-            btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            btnDashboard.FlatAppearance.BorderSize = 0;
-            btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnDashboard.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            btnDashboard.ForeColor = System.Drawing.Color.White;
-            btnDashboard.Location = new System.Drawing.Point(14, 120);
-            btnDashboard.Name = "btnDashboard";
-            btnDashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            btnDashboard.Size = new System.Drawing.Size(192, 42);
-            btnDashboard.TabIndex = 2;
-            btnDashboard.Text = "▦   Dashboard";
-            btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnDashboard.UseVisualStyleBackColor = false;
-            // 
-            // btnMonitoringPanen
-            // 
-            btnMonitoringPanen.Dock = System.Windows.Forms.DockStyle.Top;
-            btnMonitoringPanen.FlatAppearance.BorderSize = 0;
-            btnMonitoringPanen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnMonitoringPanen.Font = new System.Drawing.Font("Segoe UI", 9F);
-            btnMonitoringPanen.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            btnMonitoringPanen.Location = new System.Drawing.Point(14, 162);
-            btnMonitoringPanen.Name = "btnMonitoringPanen";
-            btnMonitoringPanen.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            btnMonitoringPanen.Size = new System.Drawing.Size(192, 42);
-            btnMonitoringPanen.TabIndex = 3;
-            btnMonitoringPanen.Text = "♧   Monitoring Panen";
-            btnMonitoringPanen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnMonitoringPanen.UseVisualStyleBackColor = true;
-            // 
-            // btnMonitoringAyam
-            // 
-            btnMonitoringAyam.Dock = System.Windows.Forms.DockStyle.Top;
-            btnMonitoringAyam.FlatAppearance.BorderSize = 0;
-            btnMonitoringAyam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnMonitoringAyam.Font = new System.Drawing.Font("Segoe UI", 9F);
-            btnMonitoringAyam.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            btnMonitoringAyam.Location = new System.Drawing.Point(14, 204);
-            btnMonitoringAyam.Name = "btnMonitoringAyam";
-            btnMonitoringAyam.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            btnMonitoringAyam.Size = new System.Drawing.Size(192, 42);
-            btnMonitoringAyam.TabIndex = 4;
-            btnMonitoringAyam.Text = "♟   Monitoring Ayam";
-            btnMonitoringAyam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnMonitoringAyam.UseVisualStyleBackColor = true;
-            // 
-            // btnPrediksiAyam
-            // 
-            btnPrediksiAyam.Dock = System.Windows.Forms.DockStyle.Top;
-            btnPrediksiAyam.FlatAppearance.BorderSize = 0;
-            btnPrediksiAyam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnPrediksiAyam.Font = new System.Drawing.Font("Segoe UI", 9F);
-            btnPrediksiAyam.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            btnPrediksiAyam.Location = new System.Drawing.Point(14, 246);
-            btnPrediksiAyam.Name = "btnPrediksiAyam";
-            btnPrediksiAyam.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            btnPrediksiAyam.Size = new System.Drawing.Size(192, 42);
-            btnPrediksiAyam.TabIndex = 5;
-            btnPrediksiAyam.Text = "↗   Prediksi Ayam";
-            btnPrediksiAyam.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnPrediksiAyam.UseVisualStyleBackColor = true;
-            // 
-            // btnPrediksiTelur
-            // 
-            btnPrediksiTelur.Dock = System.Windows.Forms.DockStyle.Top;
-            btnPrediksiTelur.FlatAppearance.BorderSize = 0;
-            btnPrediksiTelur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnPrediksiTelur.Font = new System.Drawing.Font("Segoe UI", 9F);
-            btnPrediksiTelur.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            btnPrediksiTelur.Location = new System.Drawing.Point(14, 288);
-            btnPrediksiTelur.Name = "btnPrediksiTelur";
-            btnPrediksiTelur.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            btnPrediksiTelur.Size = new System.Drawing.Size(192, 42);
-            btnPrediksiTelur.TabIndex = 6;
-            btnPrediksiTelur.Text = "◷   Prediksi Telur";
-            btnPrediksiTelur.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnPrediksiTelur.UseVisualStyleBackColor = true;
-            // 
-            // lblAktor
-            // 
-            lblAktor.Dock = System.Windows.Forms.DockStyle.Bottom;
-            lblAktor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblAktor.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            lblAktor.Location = new System.Drawing.Point(14, 769);
-            lblAktor.Name = "lblAktor";
-            lblAktor.Size = new System.Drawing.Size(192, 42);
-            lblAktor.TabIndex = 7;
-            lblAktor.Text = "●  OWNER\n    Pengelola Kandang";
-            lblAktor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnKeluar
             // 
-            btnKeluar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            btnKeluar.Dock = DockStyle.Bottom;
             btnKeluar.FlatAppearance.BorderSize = 0;
-            btnKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnKeluar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            btnKeluar.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            btnKeluar.Location = new System.Drawing.Point(14, 811);
+            btnKeluar.FlatStyle = FlatStyle.Flat;
+            btnKeluar.Font = new Font("Segoe UI", 9F);
+            btnKeluar.ForeColor = Color.FromArgb(105, 121, 139);
+            btnKeluar.Location = new Point(14, 769);
             btnKeluar.Name = "btnKeluar";
-            btnKeluar.Size = new System.Drawing.Size(192, 36);
+            btnKeluar.Size = new Size(192, 36);
             btnKeluar.TabIndex = 8;
             btnKeluar.Text = "↩  Keluar / Ganti Akun";
-            btnKeluar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnKeluar.TextAlign = ContentAlignment.MiddleLeft;
             btnKeluar.UseVisualStyleBackColor = true;
+            // 
+            // lblAktor
+            // 
+            lblAktor.Dock = DockStyle.Bottom;
+            lblAktor.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblAktor.ForeColor = Color.FromArgb(34, 49, 69);
+            lblAktor.Location = new Point(14, 805);
+            lblAktor.Name = "lblAktor";
+            lblAktor.Size = new Size(192, 42);
+            lblAktor.TabIndex = 7;
+            lblAktor.Text = "●  OWNER\n    Pengelola Kandang";
+            lblAktor.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // btnPrediksiTelur
+            // 
+            btnPrediksiTelur.Dock = DockStyle.Top;
+            btnPrediksiTelur.FlatAppearance.BorderSize = 0;
+            btnPrediksiTelur.FlatStyle = FlatStyle.Flat;
+            btnPrediksiTelur.Font = new Font("Segoe UI", 9F);
+            btnPrediksiTelur.ForeColor = Color.FromArgb(34, 49, 69);
+            btnPrediksiTelur.Location = new Point(14, 288);
+            btnPrediksiTelur.Name = "btnPrediksiTelur";
+            btnPrediksiTelur.Padding = new Padding(10, 0, 0, 0);
+            btnPrediksiTelur.Size = new Size(192, 42);
+            btnPrediksiTelur.TabIndex = 6;
+            btnPrediksiTelur.Text = "◷   Prediksi Telur";
+            btnPrediksiTelur.TextAlign = ContentAlignment.MiddleLeft;
+            btnPrediksiTelur.UseVisualStyleBackColor = true;
+            // 
+            // btnPrediksiAyam
+            // 
+            btnPrediksiAyam.Dock = DockStyle.Top;
+            btnPrediksiAyam.FlatAppearance.BorderSize = 0;
+            btnPrediksiAyam.FlatStyle = FlatStyle.Flat;
+            btnPrediksiAyam.Font = new Font("Segoe UI", 9F);
+            btnPrediksiAyam.ForeColor = Color.FromArgb(34, 49, 69);
+            btnPrediksiAyam.Location = new Point(14, 246);
+            btnPrediksiAyam.Name = "btnPrediksiAyam";
+            btnPrediksiAyam.Padding = new Padding(10, 0, 0, 0);
+            btnPrediksiAyam.Size = new Size(192, 42);
+            btnPrediksiAyam.TabIndex = 5;
+            btnPrediksiAyam.Text = "↗   Prediksi Ayam";
+            btnPrediksiAyam.TextAlign = ContentAlignment.MiddleLeft;
+            btnPrediksiAyam.UseVisualStyleBackColor = true;
+            // 
+            // btnMonitoringAyam
+            // 
+            btnMonitoringAyam.Dock = DockStyle.Top;
+            btnMonitoringAyam.FlatAppearance.BorderSize = 0;
+            btnMonitoringAyam.FlatStyle = FlatStyle.Flat;
+            btnMonitoringAyam.Font = new Font("Segoe UI", 9F);
+            btnMonitoringAyam.ForeColor = Color.FromArgb(34, 49, 69);
+            btnMonitoringAyam.Location = new Point(14, 204);
+            btnMonitoringAyam.Name = "btnMonitoringAyam";
+            btnMonitoringAyam.Padding = new Padding(10, 0, 0, 0);
+            btnMonitoringAyam.Size = new Size(192, 42);
+            btnMonitoringAyam.TabIndex = 4;
+            btnMonitoringAyam.Text = "♟   Monitoring Ayam";
+            btnMonitoringAyam.TextAlign = ContentAlignment.MiddleLeft;
+            btnMonitoringAyam.UseVisualStyleBackColor = true;
+            // 
+            // btnMonitoringPanen
+            // 
+            btnMonitoringPanen.Dock = DockStyle.Top;
+            btnMonitoringPanen.FlatAppearance.BorderSize = 0;
+            btnMonitoringPanen.FlatStyle = FlatStyle.Flat;
+            btnMonitoringPanen.Font = new Font("Segoe UI", 9F);
+            btnMonitoringPanen.ForeColor = Color.FromArgb(34, 49, 69);
+            btnMonitoringPanen.Location = new Point(14, 162);
+            btnMonitoringPanen.Name = "btnMonitoringPanen";
+            btnMonitoringPanen.Padding = new Padding(10, 0, 0, 0);
+            btnMonitoringPanen.Size = new Size(192, 42);
+            btnMonitoringPanen.TabIndex = 3;
+            btnMonitoringPanen.Text = "♧   Monitoring Panen";
+            btnMonitoringPanen.TextAlign = ContentAlignment.MiddleLeft;
+            btnMonitoringPanen.UseVisualStyleBackColor = true;
+            // 
+            // btnDashboard
+            // 
+            btnDashboard.BackColor = Color.FromArgb(0, 111, 77);
+            btnDashboard.Dock = DockStyle.Top;
+            btnDashboard.FlatAppearance.BorderSize = 0;
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnDashboard.ForeColor = Color.White;
+            btnDashboard.Location = new Point(14, 120);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Padding = new Padding(10, 0, 0, 0);
+            btnDashboard.Size = new Size(192, 42);
+            btnDashboard.TabIndex = 2;
+            btnDashboard.Text = "▦   Dashboard";
+            btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            btnDashboard.UseVisualStyleBackColor = false;
+            // 
+            // lblMenu
+            // 
+            lblMenu.Dock = DockStyle.Top;
+            lblMenu.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            lblMenu.ForeColor = Color.FromArgb(105, 121, 139);
+            lblMenu.Location = new Point(14, 82);
+            lblMenu.Name = "lblMenu";
+            lblMenu.Padding = new Padding(5, 0, 0, 6);
+            lblMenu.Size = new Size(192, 38);
+            lblMenu.TabIndex = 1;
+            lblMenu.Text = "MENU OPERASIONAL";
+            lblMenu.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // lblBrand
+            // 
+            lblBrand.Dock = DockStyle.Top;
+            lblBrand.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblBrand.ForeColor = Color.FromArgb(0, 111, 77);
+            lblBrand.Location = new Point(14, 14);
+            lblBrand.Name = "lblBrand";
+            lblBrand.Size = new Size(192, 68);
+            lblBrand.TabIndex = 0;
+            lblBrand.Text = "🐔  MONTERA\n      MONITORING KANDANG";
+            lblBrand.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // topbar
             // 
-            topbar.BackColor = System.Drawing.Color.White;
-            topbar.Controls.Add(lblWaktu);
-            topbar.Controls.Add(lblLive);
-            topbar.Controls.Add(lblFacility);
-            topbar.Dock = System.Windows.Forms.DockStyle.Top;
-            topbar.Location = new System.Drawing.Point(220, 0);
+            topbar.BackColor = Color.White;
+            topbar.Dock = DockStyle.Top;
+            topbar.Location = new Point(220, 0);
             topbar.Name = "topbar";
-            topbar.Padding = new System.Windows.Forms.Padding(22, 0, 22, 0);
-            topbar.Size = new System.Drawing.Size(1204, 58);
+            topbar.Padding = new Padding(22, 0, 22, 0);
+            topbar.Size = new Size(1204, 58);
             topbar.TabIndex = 1;
-            // 
-            // lblFacility
-            // 
-            lblFacility.Dock = System.Windows.Forms.DockStyle.Left;
-            lblFacility.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblFacility.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            lblFacility.Location = new System.Drawing.Point(22, 0);
-            lblFacility.Name = "lblFacility";
-            lblFacility.Size = new System.Drawing.Size(390, 58);
-            lblFacility.TabIndex = 0;
-            lblFacility.Text = "▣  FACILITY: Kandang Ayam - Layer Farm";
-            lblFacility.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblLive
-            // 
-            lblLive.Dock = System.Windows.Forms.DockStyle.Right;
-            lblLive.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            lblLive.ForeColor = System.Drawing.Color.FromArgb(0, 111, 77);
-            lblLive.Location = new System.Drawing.Point(882, 0);
-            lblLive.Name = "lblLive";
-            lblLive.Size = new System.Drawing.Size(150, 58);
-            lblLive.TabIndex = 1;
-            lblLive.Text = "●  DATA PANEN LIVE";
-            lblLive.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            topbar.Controls.Add(lblWaktu);
             // 
             // lblWaktu
             // 
-            lblWaktu.Dock = System.Windows.Forms.DockStyle.Right;
-            lblWaktu.Font = new System.Drawing.Font("Segoe UI", 8F);
-            lblWaktu.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblWaktu.Location = new System.Drawing.Point(1032, 0);
+            lblWaktu.Dock = DockStyle.Right;
+            lblWaktu.Font = new Font("Segoe UI", 8F);
+            lblWaktu.ForeColor = Color.FromArgb(105, 121, 139);
             lblWaktu.Name = "lblWaktu";
-            lblWaktu.Size = new System.Drawing.Size(150, 58);
-            lblWaktu.TabIndex = 2;
-            lblWaktu.Text = "Tanggal | Jam";
-            lblWaktu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            lblWaktu.Size = new Size(220, 58);
+            lblWaktu.TabIndex = 0;
+            lblWaktu.TextAlign = ContentAlignment.MiddleRight;
             // 
             // contentPanel
             // 
             contentPanel.AutoScroll = true;
-            contentPanel.BackColor = System.Drawing.Color.FromArgb(245, 248, 252);
+            contentPanel.BackColor = Color.FromArgb(245, 248, 252);
             contentPanel.Controls.Add(lblCatatanKaki);
             contentPanel.Controls.Add(dgvPanenTerbaru);
             contentPanel.Controls.Add(lblTabelPetunjuk);
@@ -327,369 +306,431 @@ namespace PROJEKKKK_PBOO.View
             contentPanel.Controls.Add(lblSubjudul);
             contentPanel.Controls.Add(lblJudul);
             contentPanel.Controls.Add(panelHalaman);
-            contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            contentPanel.Location = new System.Drawing.Point(220, 58);
+            contentPanel.Dock = DockStyle.Fill;
+            contentPanel.Location = new Point(220, 58);
             contentPanel.Name = "contentPanel";
-            contentPanel.Padding = new System.Windows.Forms.Padding(24, 18, 24, 22);
-            contentPanel.Size = new System.Drawing.Size(1204, 803);
+            contentPanel.Padding = new Padding(24, 18, 24, 22);
+            contentPanel.Size = new Size(1204, 803);
             contentPanel.TabIndex = 2;
             // 
-            // lblJudul
+            // lblCatatanKaki
             // 
-            lblJudul.Font = new System.Drawing.Font("Segoe UI", 19F, System.Drawing.FontStyle.Bold);
-            lblJudul.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            lblJudul.Location = new System.Drawing.Point(26, 20);
-            lblJudul.Name = "lblJudul";
-            lblJudul.Size = new System.Drawing.Size(720, 40);
-            lblJudul.TabIndex = 0;
-            lblJudul.Text = "Dashboard MONTERA";
-            // 
-            // lblSubjudul
-            // 
-            lblSubjudul.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            lblSubjudul.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblSubjudul.Location = new System.Drawing.Point(28, 62);
-            lblSubjudul.Name = "lblSubjudul";
-            lblSubjudul.Size = new System.Drawing.Size(800, 28);
-            lblSubjudul.TabIndex = 1;
-            lblSubjudul.Text = "Sistem Monitoring dan Prediksi Tren Panen serta Jumlah Ayam Sakit.";
-            // 
-            // lblStatusData
-            // 
-            lblStatusData.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblStatusData.ForeColor = System.Drawing.Color.FromArgb(0, 111, 77);
-            lblStatusData.Location = new System.Drawing.Point(28, 98);
-            lblStatusData.Name = "lblStatusData";
-            lblStatusData.Size = new System.Drawing.Size(580, 28);
-            lblStatusData.TabIndex = 2;
-            lblStatusData.Text = "Data panen";
-            // 
-            // btnInputPanen
-            // 
-            btnInputPanen.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            btnInputPanen.BackColor = System.Drawing.Color.FromArgb(0, 111, 77);
-            btnInputPanen.FlatAppearance.BorderSize = 0;
-            btnInputPanen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnInputPanen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            btnInputPanen.ForeColor = System.Drawing.Color.White;
-            btnInputPanen.Location = new System.Drawing.Point(951, 98);
-            btnInputPanen.Name = "btnInputPanen";
-            btnInputPanen.Size = new System.Drawing.Size(205, 40);
-            btnInputPanen.TabIndex = 3;
-            btnInputPanen.Text = "+  Input Data Panen";
-            btnInputPanen.UseVisualStyleBackColor = false;
-            // 
-            // cardTotal
-            // 
-            cardTotal.BackColor = System.Drawing.Color.White;
-            cardTotal.Controls.Add(lblTotalNote);
-            cardTotal.Controls.Add(lblTotalValue);
-            cardTotal.Controls.Add(lblTotalCaption);
-            cardTotal.Location = new System.Drawing.Point(26, 142);
-            cardTotal.Name = "cardTotal";
-            cardTotal.Padding = new System.Windows.Forms.Padding(14, 12, 10, 8);
-            cardTotal.Size = new System.Drawing.Size(260, 130);
-            cardTotal.TabIndex = 4;
-            // 
-            // lblTotalCaption
-            // 
-            lblTotalCaption.Dock = System.Windows.Forms.DockStyle.Top;
-            lblTotalCaption.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            lblTotalCaption.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblTotalCaption.Location = new System.Drawing.Point(14, 12);
-            lblTotalCaption.Name = "lblTotalCaption";
-            lblTotalCaption.Size = new System.Drawing.Size(236, 24);
-            lblTotalCaption.TabIndex = 0;
-            lblTotalCaption.Text = "TOTAL TELUR TERDATA";
-            // 
-            // lblTotalValue
-            // 
-            lblTotalValue.Dock = System.Windows.Forms.DockStyle.Top;
-            lblTotalValue.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            lblTotalValue.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            lblTotalValue.Location = new System.Drawing.Point(14, 36);
-            lblTotalValue.Name = "lblTotalValue";
-            lblTotalValue.Size = new System.Drawing.Size(236, 48);
-            lblTotalValue.TabIndex = 1;
-            lblTotalValue.Text = "0";
-            // 
-            // lblTotalNote
-            // 
-            lblTotalNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            lblTotalNote.Font = new System.Drawing.Font("Segoe UI", 8F);
-            lblTotalNote.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblTotalNote.Location = new System.Drawing.Point(14, 84);
-            lblTotalNote.Name = "lblTotalNote";
-            lblTotalNote.Size = new System.Drawing.Size(236, 38);
-            lblTotalNote.TabIndex = 2;
-            lblTotalNote.Text = "Butir tercatat di semua tanggal";
-            // 
-            // cardKualitas
-            // 
-            cardKualitas.BackColor = System.Drawing.Color.White;
-            cardKualitas.Controls.Add(lblKualitasNote);
-            cardKualitas.Controls.Add(lblKualitasValue);
-            cardKualitas.Controls.Add(lblKualitasCaption);
-            cardKualitas.Location = new System.Drawing.Point(298, 142);
-            cardKualitas.Name = "cardKualitas";
-            cardKualitas.Padding = new System.Windows.Forms.Padding(14, 12, 10, 8);
-            cardKualitas.Size = new System.Drawing.Size(260, 130);
-            cardKualitas.TabIndex = 5;
-            // 
-            // lblKualitasCaption
-            // 
-            lblKualitasCaption.Dock = System.Windows.Forms.DockStyle.Top;
-            lblKualitasCaption.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            lblKualitasCaption.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblKualitasCaption.Location = new System.Drawing.Point(14, 12);
-            lblKualitasCaption.Name = "lblKualitasCaption";
-            lblKualitasCaption.Size = new System.Drawing.Size(236, 24);
-            lblKualitasCaption.TabIndex = 0;
-            lblKualitasCaption.Text = "KUALITAS TELUR BAIK";
-            // 
-            // lblKualitasValue
-            // 
-            lblKualitasValue.Dock = System.Windows.Forms.DockStyle.Top;
-            lblKualitasValue.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            lblKualitasValue.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            lblKualitasValue.Location = new System.Drawing.Point(14, 36);
-            lblKualitasValue.Name = "lblKualitasValue";
-            lblKualitasValue.Size = new System.Drawing.Size(236, 48);
-            lblKualitasValue.TabIndex = 1;
-            lblKualitasValue.Text = "—";
-            // 
-            // lblKualitasNote
-            // 
-            lblKualitasNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            lblKualitasNote.Font = new System.Drawing.Font("Segoe UI", 8F);
-            lblKualitasNote.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblKualitasNote.Location = new System.Drawing.Point(14, 84);
-            lblKualitasNote.Name = "lblKualitasNote";
-            lblKualitasNote.Size = new System.Drawing.Size(236, 38);
-            lblKualitasNote.TabIndex = 2;
-            lblKualitasNote.Text = "Telur baik ÷ total panen";
-            // 
-            // cardRataRata
-            // 
-            cardRataRata.BackColor = System.Drawing.Color.White;
-            cardRataRata.Controls.Add(lblRataNote);
-            cardRataRata.Controls.Add(lblRataValue);
-            cardRataRata.Controls.Add(lblRataCaption);
-            cardRataRata.Location = new System.Drawing.Point(570, 142);
-            cardRataRata.Name = "cardRataRata";
-            cardRataRata.Padding = new System.Windows.Forms.Padding(14, 12, 10, 8);
-            cardRataRata.Size = new System.Drawing.Size(260, 130);
-            cardRataRata.TabIndex = 6;
-            // 
-            // lblRataCaption
-            // 
-            lblRataCaption.Dock = System.Windows.Forms.DockStyle.Top;
-            lblRataCaption.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            lblRataCaption.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblRataCaption.Location = new System.Drawing.Point(14, 12);
-            lblRataCaption.Name = "lblRataCaption";
-            lblRataCaption.Size = new System.Drawing.Size(236, 24);
-            lblRataCaption.TabIndex = 0;
-            lblRataCaption.Text = "RATA-RATA PANEN";
-            // 
-            // lblRataValue
-            // 
-            lblRataValue.Dock = System.Windows.Forms.DockStyle.Top;
-            lblRataValue.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            lblRataValue.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            lblRataValue.Location = new System.Drawing.Point(14, 36);
-            lblRataValue.Name = "lblRataValue";
-            lblRataValue.Size = new System.Drawing.Size(236, 48);
-            lblRataValue.TabIndex = 1;
-            lblRataValue.Text = "—";
-            // 
-            // lblRataNote
-            // 
-            lblRataNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            lblRataNote.Font = new System.Drawing.Font("Segoe UI", 8F);
-            lblRataNote.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblRataNote.Location = new System.Drawing.Point(14, 84);
-            lblRataNote.Name = "lblRataNote";
-            lblRataNote.Size = new System.Drawing.Size(236, 38);
-            lblRataNote.TabIndex = 2;
-            lblRataNote.Text = "Butir per hari pencatatan";
-            // 
-            // cardPrediksi
-            // 
-            cardPrediksi.BackColor = System.Drawing.Color.White;
-            cardPrediksi.Controls.Add(lblPrediksiNote);
-            cardPrediksi.Controls.Add(lblPrediksiValue);
-            cardPrediksi.Controls.Add(lblPrediksiCaption);
-            cardPrediksi.Location = new System.Drawing.Point(842, 142);
-            cardPrediksi.Name = "cardPrediksi";
-            cardPrediksi.Padding = new System.Windows.Forms.Padding(14, 12, 10, 8);
-            cardPrediksi.Size = new System.Drawing.Size(260, 130);
-            cardPrediksi.TabIndex = 7;
-            // 
-            // lblPrediksiCaption
-            // 
-            lblPrediksiCaption.Dock = System.Windows.Forms.DockStyle.Top;
-            lblPrediksiCaption.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            lblPrediksiCaption.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblPrediksiCaption.Location = new System.Drawing.Point(14, 12);
-            lblPrediksiCaption.Name = "lblPrediksiCaption";
-            lblPrediksiCaption.Size = new System.Drawing.Size(236, 24);
-            lblPrediksiCaption.TabIndex = 0;
-            lblPrediksiCaption.Text = "PERKIRAAN PANEN BERIKUTNYA";
-            // 
-            // lblPrediksiValue
-            // 
-            lblPrediksiValue.Dock = System.Windows.Forms.DockStyle.Top;
-            lblPrediksiValue.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            lblPrediksiValue.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            lblPrediksiValue.Location = new System.Drawing.Point(14, 36);
-            lblPrediksiValue.Name = "lblPrediksiValue";
-            lblPrediksiValue.Size = new System.Drawing.Size(236, 48);
-            lblPrediksiValue.TabIndex = 1;
-            lblPrediksiValue.Text = "—";
-            // 
-            // lblPrediksiNote
-            // 
-            lblPrediksiNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            lblPrediksiNote.Font = new System.Drawing.Font("Segoe UI", 8F);
-            lblPrediksiNote.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblPrediksiNote.Location = new System.Drawing.Point(14, 84);
-            lblPrediksiNote.Name = "lblPrediksiNote";
-            lblPrediksiNote.Size = new System.Drawing.Size(236, 38);
-            lblPrediksiNote.TabIndex = 2;
-            lblPrediksiNote.Text = "Belum ada data panen";
-            // 
-            // lblTabelJudul
-            // 
-            lblTabelJudul.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            lblTabelJudul.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            lblTabelJudul.Location = new System.Drawing.Point(28, 292);
-            lblTabelJudul.Name = "lblTabelJudul";
-            lblTabelJudul.Size = new System.Drawing.Size(600, 30);
-            lblTabelJudul.TabIndex = 8;
-            lblTabelJudul.Text = "▰  Riwayat Panen Terbaru";
-            // 
-            // lblTabelPetunjuk
-            // 
-            lblTabelPetunjuk.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblTabelPetunjuk.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblTabelPetunjuk.Location = new System.Drawing.Point(28, 324);
-            lblTabelPetunjuk.Name = "lblTabelPetunjuk";
-            lblTabelPetunjuk.Size = new System.Drawing.Size(900, 24);
-            lblTabelPetunjuk.TabIndex = 9;
-            lblTabelPetunjuk.Text = "Perkiraan untuk satu hari setelah tanggal panen, dihitung dari rata-rata hingga 3 catatan terakhir.";
+            lblCatatanKaki.Font = new Font("Segoe UI", 8F);
+            lblCatatanKaki.ForeColor = Color.FromArgb(105, 121, 139);
+            lblCatatanKaki.Location = new Point(28, 675);
+            lblCatatanKaki.Name = "lblCatatanKaki";
+            lblCatatanKaki.Size = new Size(1050, 42);
+            lblCatatanKaki.TabIndex = 11;
+            lblCatatanKaki.Text = "Persentase kualitas menunjukkan bagian telur baik dari seluruh telur yang dicatat; angka prediksi hanya perkiraan berdasarkan riwayat.";
             // 
             // dgvPanenTerbaru
             // 
             dgvPanenTerbaru.AllowUserToAddRows = false;
             dgvPanenTerbaru.AllowUserToDeleteRows = false;
-            dgvPanenTerbaru.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            dgvPanenTerbaru.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPanenTerbaru.BackgroundColor = System.Drawing.Color.White;
-            dgvPanenTerbaru.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dgvPanenTerbaru.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(231, 240, 250);
-            dgvPanenTerbaru.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            dgvPanenTerbaru.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
+            dgvPanenTerbaru.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvPanenTerbaru.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPanenTerbaru.BackgroundColor = Color.White;
+            dgvPanenTerbaru.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(231, 240, 250);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(34, 49, 69);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPanenTerbaru.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPanenTerbaru.ColumnHeadersHeight = 38;
+            dgvPanenTerbaru.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8 });
             dgvPanenTerbaru.EnableHeadersVisualStyles = false;
-            dgvPanenTerbaru.GridColor = System.Drawing.Color.FromArgb(225, 232, 240);
-            dgvPanenTerbaru.Location = new System.Drawing.Point(26, 354);
+            dgvPanenTerbaru.GridColor = Color.FromArgb(225, 232, 240);
+            dgvPanenTerbaru.Location = new Point(26, 354);
             dgvPanenTerbaru.Name = "dgvPanenTerbaru";
             dgvPanenTerbaru.ReadOnly = true;
             dgvPanenTerbaru.RowHeadersVisible = false;
+            dgvPanenTerbaru.RowHeadersWidth = 51;
             dgvPanenTerbaru.RowTemplate.Height = 34;
-            dgvPanenTerbaru.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvPanenTerbaru.Size = new System.Drawing.Size(1130, 310);
+            dgvPanenTerbaru.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPanenTerbaru.Size = new Size(1130, 310);
             dgvPanenTerbaru.TabIndex = 10;
-            dgvPanenTerbaru.Columns.Add("Tanggal", "TANGGAL PANEN");
-            dgvPanenTerbaru.Columns.Add("Total", "TOTAL");
-            dgvPanenTerbaru.Columns.Add("Baik", "TELUR BAIK");
-            dgvPanenTerbaru.Columns.Add("Rusak", "TELUR RUSAK");
-            dgvPanenTerbaru.Columns.Add("Persen", "KUALITAS (%)");
-            dgvPanenTerbaru.Columns.Add("TanggalPrediksi", "PREDIKSI TANGGAL");
-            dgvPanenTerbaru.Columns.Add("Prediksi", "PERKIRAAN TELUR");
-            dgvPanenTerbaru.Columns.Add("Keterangan", "KETERANGAN");
             // 
-            // lblCatatanKaki
+            // dataGridViewTextBoxColumn1
             // 
-            lblCatatanKaki.Font = new System.Drawing.Font("Segoe UI", 8F);
-            lblCatatanKaki.ForeColor = System.Drawing.Color.FromArgb(105, 121, 139);
-            lblCatatanKaki.Location = new System.Drawing.Point(28, 675);
-            lblCatatanKaki.Name = "lblCatatanKaki";
-            lblCatatanKaki.Size = new System.Drawing.Size(1050, 42);
-            lblCatatanKaki.TabIndex = 11;
-            lblCatatanKaki.Text = "Persentase kualitas menunjukkan bagian telur baik dari seluruh telur yang dicatat; angka prediksi hanya perkiraan berdasarkan riwayat.";
+            dataGridViewTextBoxColumn1.HeaderText = "TANGGAL PANEN";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "TOTAL";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.HeaderText = "TELUR BAIK";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.HeaderText = "TELUR RUSAK";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.HeaderText = "KUALITAS (%)";
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.HeaderText = "PREDIKSI TANGGAL";
+            dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.HeaderText = "PERKIRAAN TELUR";
+            dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewTextBoxColumn8.HeaderText = "KETERANGAN";
+            dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // lblTabelPetunjuk
+            // 
+            lblTabelPetunjuk.Font = new Font("Segoe UI", 8.5F);
+            lblTabelPetunjuk.ForeColor = Color.FromArgb(105, 121, 139);
+            lblTabelPetunjuk.Location = new Point(28, 324);
+            lblTabelPetunjuk.Name = "lblTabelPetunjuk";
+            lblTabelPetunjuk.Size = new Size(900, 24);
+            lblTabelPetunjuk.TabIndex = 9;
+            lblTabelPetunjuk.Text = "Perkiraan untuk satu hari setelah tanggal panen, dihitung dari rata-rata hingga 3 catatan terakhir.";
+            // 
+            // lblTabelJudul
+            // 
+            lblTabelJudul.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblTabelJudul.ForeColor = Color.FromArgb(34, 49, 69);
+            lblTabelJudul.Location = new Point(28, 292);
+            lblTabelJudul.Name = "lblTabelJudul";
+            lblTabelJudul.Size = new Size(600, 30);
+            lblTabelJudul.TabIndex = 8;
+            lblTabelJudul.Text = "▰  Riwayat Panen Terbaru";
+            // 
+            // cardPrediksi
+            // 
+            cardPrediksi.BackColor = Color.White;
+            cardPrediksi.Controls.Add(lblPrediksiNote);
+            cardPrediksi.Controls.Add(lblPrediksiValue);
+            cardPrediksi.Controls.Add(lblPrediksiCaption);
+            cardPrediksi.Location = new Point(842, 142);
+            cardPrediksi.Name = "cardPrediksi";
+            cardPrediksi.Padding = new Padding(14, 12, 10, 8);
+            cardPrediksi.Size = new Size(260, 130);
+            cardPrediksi.TabIndex = 7;
+            // 
+            // lblPrediksiNote
+            // 
+            lblPrediksiNote.Dock = DockStyle.Fill;
+            lblPrediksiNote.Font = new Font("Segoe UI", 8F);
+            lblPrediksiNote.ForeColor = Color.FromArgb(105, 121, 139);
+            lblPrediksiNote.Location = new Point(14, 84);
+            lblPrediksiNote.Name = "lblPrediksiNote";
+            lblPrediksiNote.Size = new Size(236, 38);
+            lblPrediksiNote.TabIndex = 2;
+            lblPrediksiNote.Text = "Belum ada data panen";
+            // 
+            // lblPrediksiValue
+            // 
+            lblPrediksiValue.Dock = DockStyle.Top;
+            lblPrediksiValue.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblPrediksiValue.ForeColor = Color.FromArgb(34, 49, 69);
+            lblPrediksiValue.Location = new Point(14, 36);
+            lblPrediksiValue.Name = "lblPrediksiValue";
+            lblPrediksiValue.Size = new Size(236, 48);
+            lblPrediksiValue.TabIndex = 1;
+            lblPrediksiValue.Text = "—";
+            // 
+            // lblPrediksiCaption
+            // 
+            lblPrediksiCaption.Dock = DockStyle.Top;
+            lblPrediksiCaption.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            lblPrediksiCaption.ForeColor = Color.FromArgb(105, 121, 139);
+            lblPrediksiCaption.Location = new Point(14, 12);
+            lblPrediksiCaption.Name = "lblPrediksiCaption";
+            lblPrediksiCaption.Size = new Size(236, 24);
+            lblPrediksiCaption.TabIndex = 0;
+            lblPrediksiCaption.Text = "PERKIRAAN PANEN BERIKUTNYA";
+            // 
+            // cardRataRata
+            // 
+            cardRataRata.BackColor = Color.White;
+            cardRataRata.Controls.Add(lblRataNote);
+            cardRataRata.Controls.Add(lblRataValue);
+            cardRataRata.Controls.Add(lblRataCaption);
+            cardRataRata.Location = new Point(570, 142);
+            cardRataRata.Name = "cardRataRata";
+            cardRataRata.Padding = new Padding(14, 12, 10, 8);
+            cardRataRata.Size = new Size(260, 130);
+            cardRataRata.TabIndex = 6;
+            // 
+            // lblRataNote
+            // 
+            lblRataNote.Dock = DockStyle.Fill;
+            lblRataNote.Font = new Font("Segoe UI", 8F);
+            lblRataNote.ForeColor = Color.FromArgb(105, 121, 139);
+            lblRataNote.Location = new Point(14, 84);
+            lblRataNote.Name = "lblRataNote";
+            lblRataNote.Size = new Size(236, 38);
+            lblRataNote.TabIndex = 2;
+            lblRataNote.Text = "Butir per hari pencatatan";
+            // 
+            // lblRataValue
+            // 
+            lblRataValue.Dock = DockStyle.Top;
+            lblRataValue.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblRataValue.ForeColor = Color.FromArgb(34, 49, 69);
+            lblRataValue.Location = new Point(14, 36);
+            lblRataValue.Name = "lblRataValue";
+            lblRataValue.Size = new Size(236, 48);
+            lblRataValue.TabIndex = 1;
+            lblRataValue.Text = "—";
+            // 
+            // lblRataCaption
+            // 
+            lblRataCaption.Dock = DockStyle.Top;
+            lblRataCaption.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            lblRataCaption.ForeColor = Color.FromArgb(105, 121, 139);
+            lblRataCaption.Location = new Point(14, 12);
+            lblRataCaption.Name = "lblRataCaption";
+            lblRataCaption.Size = new Size(236, 24);
+            lblRataCaption.TabIndex = 0;
+            lblRataCaption.Text = "RATA-RATA PANEN";
+            // 
+            // cardKualitas
+            // 
+            cardKualitas.BackColor = Color.White;
+            cardKualitas.Controls.Add(lblKualitasNote);
+            cardKualitas.Controls.Add(lblKualitasValue);
+            cardKualitas.Controls.Add(lblKualitasCaption);
+            cardKualitas.Location = new Point(298, 142);
+            cardKualitas.Name = "cardKualitas";
+            cardKualitas.Padding = new Padding(14, 12, 10, 8);
+            cardKualitas.Size = new Size(260, 130);
+            cardKualitas.TabIndex = 5;
+            // 
+            // lblKualitasNote
+            // 
+            lblKualitasNote.Dock = DockStyle.Fill;
+            lblKualitasNote.Font = new Font("Segoe UI", 8F);
+            lblKualitasNote.ForeColor = Color.FromArgb(105, 121, 139);
+            lblKualitasNote.Location = new Point(14, 84);
+            lblKualitasNote.Name = "lblKualitasNote";
+            lblKualitasNote.Size = new Size(236, 38);
+            lblKualitasNote.TabIndex = 2;
+            lblKualitasNote.Text = "Telur baik ÷ total panen";
+            // 
+            // lblKualitasValue
+            // 
+            lblKualitasValue.Dock = DockStyle.Top;
+            lblKualitasValue.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblKualitasValue.ForeColor = Color.FromArgb(34, 49, 69);
+            lblKualitasValue.Location = new Point(14, 36);
+            lblKualitasValue.Name = "lblKualitasValue";
+            lblKualitasValue.Size = new Size(236, 48);
+            lblKualitasValue.TabIndex = 1;
+            lblKualitasValue.Text = "—";
+            // 
+            // lblKualitasCaption
+            // 
+            lblKualitasCaption.Dock = DockStyle.Top;
+            lblKualitasCaption.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            lblKualitasCaption.ForeColor = Color.FromArgb(105, 121, 139);
+            lblKualitasCaption.Location = new Point(14, 12);
+            lblKualitasCaption.Name = "lblKualitasCaption";
+            lblKualitasCaption.Size = new Size(236, 24);
+            lblKualitasCaption.TabIndex = 0;
+            lblKualitasCaption.Text = "KUALITAS TELUR BAIK";
+            // 
+            // cardTotal
+            // 
+            cardTotal.BackColor = Color.White;
+            cardTotal.Controls.Add(lblTotalNote);
+            cardTotal.Controls.Add(lblTotalValue);
+            cardTotal.Controls.Add(lblTotalCaption);
+            cardTotal.Location = new Point(26, 142);
+            cardTotal.Name = "cardTotal";
+            cardTotal.Padding = new Padding(14, 12, 10, 8);
+            cardTotal.Size = new Size(260, 130);
+            cardTotal.TabIndex = 4;
+            // 
+            // lblTotalNote
+            // 
+            lblTotalNote.Dock = DockStyle.Fill;
+            lblTotalNote.Font = new Font("Segoe UI", 8F);
+            lblTotalNote.ForeColor = Color.FromArgb(105, 121, 139);
+            lblTotalNote.Location = new Point(14, 84);
+            lblTotalNote.Name = "lblTotalNote";
+            lblTotalNote.Size = new Size(236, 38);
+            lblTotalNote.TabIndex = 2;
+            lblTotalNote.Text = "Butir tercatat di semua tanggal";
+            // 
+            // lblTotalValue
+            // 
+            lblTotalValue.Dock = DockStyle.Top;
+            lblTotalValue.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTotalValue.ForeColor = Color.FromArgb(34, 49, 69);
+            lblTotalValue.Location = new Point(14, 36);
+            lblTotalValue.Name = "lblTotalValue";
+            lblTotalValue.Size = new Size(236, 48);
+            lblTotalValue.TabIndex = 1;
+            lblTotalValue.Text = "0";
+            // 
+            // lblTotalCaption
+            // 
+            lblTotalCaption.Dock = DockStyle.Top;
+            lblTotalCaption.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            lblTotalCaption.ForeColor = Color.FromArgb(105, 121, 139);
+            lblTotalCaption.Location = new Point(14, 12);
+            lblTotalCaption.Name = "lblTotalCaption";
+            lblTotalCaption.Size = new Size(236, 24);
+            lblTotalCaption.TabIndex = 0;
+            lblTotalCaption.Text = "TOTAL TELUR TERDATA";
+            // 
+            // btnInputPanen
+            // 
+            btnInputPanen.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnInputPanen.BackColor = Color.FromArgb(0, 111, 77);
+            btnInputPanen.FlatAppearance.BorderSize = 0;
+            btnInputPanen.FlatStyle = FlatStyle.Flat;
+            btnInputPanen.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnInputPanen.ForeColor = Color.White;
+            btnInputPanen.Location = new Point(951, 98);
+            btnInputPanen.Name = "btnInputPanen";
+            btnInputPanen.Size = new Size(205, 40);
+            btnInputPanen.TabIndex = 3;
+            btnInputPanen.Text = "+  Input Data Panen";
+            btnInputPanen.UseVisualStyleBackColor = false;
+            // 
+            // lblStatusData
+            // 
+            lblStatusData.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblStatusData.ForeColor = Color.FromArgb(0, 111, 77);
+            lblStatusData.Location = new Point(28, 98);
+            lblStatusData.Name = "lblStatusData";
+            lblStatusData.Size = new Size(580, 28);
+            lblStatusData.TabIndex = 2;
+            lblStatusData.Text = "Data panen";
+            // 
+            // lblSubjudul
+            // 
+            lblSubjudul.Font = new Font("Segoe UI", 9.5F);
+            lblSubjudul.ForeColor = Color.FromArgb(105, 121, 139);
+            lblSubjudul.Location = new Point(28, 62);
+            lblSubjudul.Name = "lblSubjudul";
+            lblSubjudul.Size = new Size(800, 28);
+            lblSubjudul.TabIndex = 1;
+            lblSubjudul.Text = "Sistem Monitoring dan Prediksi Tren Panen serta Jumlah Ayam Sakit.";
+            // 
+            // lblJudul
+            // 
+            lblJudul.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
+            lblJudul.ForeColor = Color.FromArgb(34, 49, 69);
+            lblJudul.Location = new Point(26, 20);
+            lblJudul.Name = "lblJudul";
+            lblJudul.Size = new Size(720, 40);
+            lblJudul.TabIndex = 0;
+            lblJudul.Text = "Dashboard MONTERA";
             // 
             // panelHalaman
             // 
-            panelHalaman.BackColor = System.Drawing.Color.FromArgb(245, 248, 252);
+            panelHalaman.BackColor = Color.FromArgb(245, 248, 252);
             panelHalaman.Controls.Add(panelHalamanKonten);
             panelHalaman.Controls.Add(btnKembali);
             panelHalaman.Controls.Add(lblHalaman);
-            panelHalaman.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelHalaman.Location = new System.Drawing.Point(24, 18);
+            panelHalaman.Dock = DockStyle.Fill;
+            panelHalaman.Location = new Point(24, 18);
             panelHalaman.Name = "panelHalaman";
-            panelHalaman.Size = new System.Drawing.Size(1156, 763);
+            panelHalaman.Size = new Size(1156, 763);
             panelHalaman.TabIndex = 12;
             panelHalaman.Visible = false;
             // 
+            // panelHalamanKonten
+            // 
+            panelHalamanKonten.Dock = DockStyle.Fill;
+            panelHalamanKonten.BackColor = Color.FromArgb(245, 248, 252);
+            panelHalamanKonten.Padding = new Padding(0, 58, 0, 0);
+            panelHalamanKonten.Name = "panelHalamanKonten";
+            panelHalamanKonten.TabIndex = 2;
+            // 
             // btnKembali
             // 
-            btnKembali.BackColor = System.Drawing.Color.FromArgb(0, 111, 77);
+            btnKembali.BackColor = Color.FromArgb(0, 111, 77);
             btnKembali.FlatAppearance.BorderSize = 0;
-            btnKembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnKembali.ForeColor = System.Drawing.Color.White;
-            btnKembali.Location = new System.Drawing.Point(12, 10);
+            btnKembali.FlatStyle = FlatStyle.Flat;
+            btnKembali.ForeColor = Color.White;
+            btnKembali.Location = new Point(12, 10);
             btnKembali.Name = "btnKembali";
-            btnKembali.Size = new System.Drawing.Size(130, 38);
+            btnKembali.Size = new Size(130, 38);
             btnKembali.TabIndex = 0;
             btnKembali.Text = "← Dashboard";
             btnKembali.UseVisualStyleBackColor = false;
             // 
             // lblHalaman
             // 
-            lblHalaman.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            lblHalaman.ForeColor = System.Drawing.Color.FromArgb(34, 49, 69);
-            lblHalaman.Location = new System.Drawing.Point(160, 10);
+            lblHalaman.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblHalaman.ForeColor = Color.FromArgb(34, 49, 69);
+            lblHalaman.Location = new Point(160, 10);
             lblHalaman.Name = "lblHalaman";
-            lblHalaman.Size = new System.Drawing.Size(850, 38);
+            lblHalaman.Size = new Size(850, 38);
             lblHalaman.TabIndex = 1;
             lblHalaman.Text = "Halaman";
-            lblHalaman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panelHalamanKonten
-            // 
-            panelHalamanKonten.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            panelHalamanKonten.BackColor = System.Drawing.Color.FromArgb(245, 248, 252);
-            panelHalamanKonten.Location = new System.Drawing.Point(0, 58);
-            panelHalamanKonten.Name = "panelHalamanKonten";
-            panelHalamanKonten.Size = new System.Drawing.Size(1156, 705);
-            panelHalamanKonten.TabIndex = 2;
+            lblHalaman.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // Beranda
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            BackColor = System.Drawing.Color.FromArgb(245, 248, 252);
-            ClientSize = new System.Drawing.Size(1424, 861);
-            WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(245, 248, 252);
+            ClientSize = new Size(1424, 861);
             Controls.Add(contentPanel);
             Controls.Add(topbar);
             Controls.Add(sidebar);
-            MinimumSize = new System.Drawing.Size(1120, 720);
+            MinimumSize = new Size(1120, 720);
             Name = "Beranda";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MONTERA | Dashboard";
+            WindowState = FormWindowState.Maximized;
             sidebar.ResumeLayout(false);
-            topbar.ResumeLayout(false);
             contentPanel.ResumeLayout(false);
-            panelHalaman.ResumeLayout(false);
-            cardTotal.ResumeLayout(false);
-            cardKualitas.ResumeLayout(false);
-            cardRataRata.ResumeLayout(false);
-            cardPrediksi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvPanenTerbaru).EndInit();
+            cardPrediksi.ResumeLayout(false);
+            cardRataRata.ResumeLayout(false);
+            cardKualitas.ResumeLayout(false);
+            cardTotal.ResumeLayout(false);
+            panelHalaman.ResumeLayout(false);
             ResumeLayout(false);
         }
+
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }
